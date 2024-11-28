@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import io.github.unisim.GameState;
+import io.github.unisim.ScoreManager;
 import io.github.unisim.Timer;
 import io.github.unisim.building.BuildingType;
 import io.github.unisim.world.World;
@@ -39,6 +40,7 @@ public class InfoBar {
   private Cell<Table> buildingCountersTableCell;
   private Cell[] buildingCounterCells;
   private World world;
+
   /**
    * Create a new infoBar and draws its' components onto the provided stage.
 
@@ -48,6 +50,7 @@ public class InfoBar {
     this.timer = timer;
     this.world = world;
     buildingCounterCells = new Cell[4];
+    ScoreManager scoreManager = new ScoreManager();
 
     // Building counter table
     for (int i = 0; i < 4; i++) {
@@ -93,7 +96,8 @@ public class InfoBar {
     stage.addActor(titleTable);
   }
 
-  /**
+
+    /**
    * Called when the UI needs to be updated, usually on every frame.
    */
   public void update() {
@@ -107,6 +111,7 @@ public class InfoBar {
     buildingCounterLabels[3].setText("Sleeping: "
         + Integer.toString(world.getBuildingCount(BuildingType.SLEEPING)));
     pauseButtonCell.setActor(GameState.paused ? playImage : pauseImage);
+    scoreLabel.setText(ScoreManager.score);
   }
 
   /**

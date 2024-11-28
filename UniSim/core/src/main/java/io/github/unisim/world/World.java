@@ -16,6 +16,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
+import io.github.unisim.ScoreManager;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
@@ -51,8 +52,10 @@ public class World {
   private Point topRight;
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
+  private ScoreManager scoreManager = new ScoreManager();
 
-  /**
+
+    /**
    * Create a new World.
    */
   public World() {
@@ -337,6 +340,7 @@ public class World {
       )
     );
     selectedBuilding = null;
+    scoreManager.UpdateScore();
     return true;
   }
 

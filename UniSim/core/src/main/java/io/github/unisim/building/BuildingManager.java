@@ -8,6 +8,8 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
+import io.github.unisim.ScoreManager;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +27,7 @@ public class BuildingManager {
 
   public BuildingManager(Matrix4 isoTransform) {
     this.isoTransform = isoTransform;
+
   }
 
   /**
@@ -154,7 +157,7 @@ public class BuildingManager {
    * @param building - A reference to the building object that was placed
    */
   private void updateCounters(Building building) {
-    if (building == previewBuilding) {
+      if (building == previewBuilding) {
       return;
     }
     if (!buildingCounts.containsKey(building.type)) {
