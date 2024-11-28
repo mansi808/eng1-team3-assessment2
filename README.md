@@ -12,3 +12,9 @@ UniSim is a short 2D game in which you can take control of your own university -
 - Change directory to UniSim/
 - Run the command `gradlew run` or `gradlew build`
 - Source code for the game lives in UniSim/core
+
+#### Accessing the ENG1 Assessment 2 website
+
+The new URL website is as following:
+    - https://mitkoooo.github.io/eng1-assessment2-website/
+
