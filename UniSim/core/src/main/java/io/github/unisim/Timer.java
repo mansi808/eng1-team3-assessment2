@@ -7,6 +7,8 @@ public class Timer {
   private float remainingTime;
   private float initialTime;
   private boolean hasFinished;
+  private ScoreManager scoreManager = new ScoreManager();
+
 
   /**
    * Create a new timer set to count down from an initial number of milliseconds.
@@ -27,6 +29,7 @@ public class Timer {
    */
   public boolean tick(float deltaTime) {
     remainingTime -= deltaTime;
+    scoreManager.decrementScore(deltaTime);
     if (remainingTime > 0) {
       return true;
     } else {
@@ -36,7 +39,7 @@ public class Timer {
   }
 
   /**
-   * Reset the timer to its' initial time value. 
+   * Reset the timer to its' initial time value.
    */
   public void reset() {
     remainingTime = initialTime;

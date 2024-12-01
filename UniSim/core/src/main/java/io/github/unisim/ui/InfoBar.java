@@ -26,7 +26,7 @@ public class InfoBar {
   private Table buildingCountersTable = new Table();
   private Label[] buildingCounterLabels = new Label[4];
   private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
-  private Label scoreLabel = new Label("86%", skin);
+  private Label scoreLabel = new Label(Integer.toString(ScoreManager.score), skin);
   private Label titleLabel = new Label("UniSim", skin);
   private Label timerLabel;
   private Texture pauseTexture = new Texture("ui/pause.png");
@@ -40,6 +40,7 @@ public class InfoBar {
   private Cell<Table> buildingCountersTableCell;
   private Cell[] buildingCounterCells;
   private World world;
+
 
   /**
    * Create a new infoBar and draws its' components onto the provided stage.

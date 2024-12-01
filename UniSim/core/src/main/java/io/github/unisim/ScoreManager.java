@@ -1,12 +1,17 @@
 package io.github.unisim;
 
+import com.badlogic.gdx.Game;
 import io.github.unisim.building.Building;
 
 public class ScoreManager {
-    public static int score = 69;
+    public static int score;
+    public float timeElapsed;
+    public float decreaseInterval;
 
     public ScoreManager(){
-
+        score = 0;
+        timeElapsed = 0;
+        decreaseInterval = 2000;
     }
 
     /**
@@ -17,11 +22,23 @@ public class ScoreManager {
         score += 10;
     }
 
-    /**
-     * Sets score when called to 0
-     */
-    public void setScore() {
+    public void decrementScore(float deltaTime) {
+        if (!GameState.paused && !GameState.gameOver) {
+            timeElapsed += deltaTime;
+            if (timeElapsed >= decreaseInterval) {
+                if (score > 0) {
+                    score -= 1;
+                    timeElapsed = 0;
+                }
+            }
+        }
+    }
 
+    /**
+     * Resets score when called to 0
+     */
+    public void resetScore() {
+        score = 0;
     }
 
     /**
@@ -30,7 +47,7 @@ public class ScoreManager {
      * @return
      */
     public int getScore() {
-        return 0;
+        return score;
     }
 
     /**
