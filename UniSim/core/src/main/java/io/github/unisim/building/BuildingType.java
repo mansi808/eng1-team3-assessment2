@@ -5,6 +5,7 @@ package io.github.unisim.building;
  * has its' own counter.
  */
 public enum BuildingType {
+  BUS,
   RECREATION,
   LEARNING,
   SLEEPING,
