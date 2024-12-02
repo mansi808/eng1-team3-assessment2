@@ -35,10 +35,10 @@ public class ScoreManager {
     }
 
     /**
-     * Resets score when called to 0
+     * Sets score when called to 0
      */
-    public void resetScore() {
-        score = 0;
+    public void setScore() {
+
     }
 
     /**
@@ -47,7 +47,7 @@ public class ScoreManager {
      * @return
      */
     public int getScore() {
-        return score;
+        return 0;
     }
 
     /**

@@ -225,4 +225,7 @@ public class BuildingManager {
         building.flipped, false
     );
   }
+  public ArrayList<Building> getBuildings(){
+    return buildings;
+  }
 }
