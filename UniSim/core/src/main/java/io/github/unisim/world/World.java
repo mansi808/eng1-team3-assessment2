@@ -1,5 +1,6 @@
 package io.github.unisim.world;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -329,7 +330,7 @@ public class World {
    * @return - True if building could be done successfully, false otherwise.
    */
   public boolean placeBuilding() {
-    if (!canBuild) {
+    if (!canBuild || GameState.paused) {
       return false;
     }
     buildingManager.placeBuilding(

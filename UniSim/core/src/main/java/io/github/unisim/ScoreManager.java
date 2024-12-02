@@ -8,7 +8,7 @@ public class ScoreManager {
     public float timeElapsed;
     public float decreaseInterval;
 
-    public ScoreManager(){
+    public ScoreManager() {
         score = 0;
         timeElapsed = 0;
         decreaseInterval = 2000;
@@ -56,10 +56,10 @@ public class ScoreManager {
      *
      * @return distance between buildings
      */
-    private int getBuildingDistance(Building building1, Building building2) {
-
+    private int getBuildingDistance(Building placedBuilding) {
         return 0;
     }
+
 }
 
 
