@@ -371,4 +371,7 @@ public class World {
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
   }
+  public BuildingManager getBuildingManager() {
+      return buildingManager;
+  }
 }

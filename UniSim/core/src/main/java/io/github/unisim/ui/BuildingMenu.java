@@ -85,7 +85,7 @@ public class BuildingMenu {
         BuildingType.SLEEPING,
         "Student Accomodation"
     ));
-    /**
+
       buildings.add(new Building(
           new Texture(Gdx.files.internal("buildings/bakery.png")),
           0.0060f,
@@ -95,7 +95,7 @@ public class BuildingMenu {
           false,
           BuildingType.RECREATION,
           "Bakery"
-      ));*/
+      ));
 
     table = new Table();
     // Add buldings to the table

@@ -17,6 +17,7 @@ public class ScoreManager {
     /**
      * Runs everytime building placed to change score depending on where
      * building is
+     *
      */
     public void UpdateScore() {
         score += 10;
