@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
-import io.github.unisim.ScoreManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +19,7 @@ import java.util.Map;
 public class BuildingManager {
   // create a list of buildings which will be sorted by a height metric derived from
   // the locations of the corners of the buildings.
-  private ArrayList<Building> buildings = new ArrayList<>();
+  private static ArrayList<Building> buildings = new ArrayList<>();
   private Map<BuildingType, Integer> buildingCounts = new HashMap<>();
   private Matrix4 isoTransform;
   private Building previewBuilding;
@@ -225,7 +224,7 @@ public class BuildingManager {
         building.flipped, false
     );
   }
-  public ArrayList<Building> getBuildings(){
+  public static ArrayList<Building> getBuildings(){
     return buildings;
   }
 }

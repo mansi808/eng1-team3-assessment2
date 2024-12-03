@@ -22,6 +22,8 @@ import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
 
+import java.util.ArrayList;
+
 /**
  * A class that holds all the gameplay elements of the game UniSim.
  * It has the ablity to render the game and update the state of the game
@@ -54,6 +56,7 @@ public class World {
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
   private ScoreManager scoreManager = new ScoreManager();
+  private ArrayList<Building> buildings;
 
 
     /**
@@ -340,8 +343,9 @@ public class World {
         selectedBuilding.flipped, selectedBuilding.type, selectedBuilding.name
       )
     );
+    buildings = BuildingManager.getBuildings();
+    scoreManager.UpdateScore(selectedBuilding, buildings, this);
     selectedBuilding = null;
-    scoreManager.UpdateScore();
     return true;
   }
 
