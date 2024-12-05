@@ -19,7 +19,7 @@ import java.util.Map;
 public class BuildingManager {
   // create a list of buildings which will be sorted by a height metric derived from
   // the locations of the corners of the buildings.
-  private static ArrayList<Building> buildings = new ArrayList<>();
+  private ArrayList<Building> buildings = new ArrayList<>();
   private Map<BuildingType, Integer> buildingCounts = new HashMap<>();
   private Matrix4 isoTransform;
   private Building previewBuilding;
@@ -224,7 +224,7 @@ public class BuildingManager {
         building.flipped, false
     );
   }
-  public static ArrayList<Building> getBuildings(){
+  public ArrayList<Building> getBuildings(){
     return buildings;
   }
 }

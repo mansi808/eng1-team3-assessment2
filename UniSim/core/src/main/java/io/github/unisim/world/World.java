@@ -343,7 +343,7 @@ public class World {
         selectedBuilding.flipped, selectedBuilding.type, selectedBuilding.name
       )
     );
-    buildings = BuildingManager.getBuildings();
+    buildings = buildingManager.getBuildings();
     scoreManager.UpdateScore(selectedBuilding, buildings, this);
     selectedBuilding = null;
     return true;
