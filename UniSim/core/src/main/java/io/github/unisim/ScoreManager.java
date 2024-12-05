@@ -36,7 +36,7 @@ public class ScoreManager {
         int minCount = Math.min(Math.min(recreational, eating), Math.min(sleeping, learning));
         int maxCount = Math.max(Math.max(recreational, eating), Math.max(sleeping, learning));
         int imbalance = maxCount - minCount;
-        int baseScore = 5;
+        int baseScore = calculateBaseScore(placed, buildings);
         int scoreIncrease = imbalance * 2;
 
         if((type.equals(BuildingType.RECREATION) && recreational == minCount) || (type.equals(BuildingType.LEARNING) && learning == minCount)
@@ -48,10 +48,32 @@ public class ScoreManager {
         } else{
             score += baseScore;
         }
+    }
 
+    public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
+        Building closest = null;
+        double distance = 0;
+        int baseScore = 10;
+        for (Building building : buildings) {
+            double distanceTemp = getBuildingDistance(building, placed);
+            if(closest == null || distanceTemp < distance) {
+                closest = building;
+            }
+        }
+        if(placed.type == BuildingType.RECREATION) {
+            /* Not sure how we want to deal with this */
+        }
+        return baseScore;
+    }
 
-
-
+    /**
+     * Takes Building 1 and 2 and calculates distance
+     * d = sqroot( sq(x2 - x1) + sq(y2 -y1))
+     *
+     * @return distance between buildings
+     */
+    private double getBuildingDistance(Building building, Building placed) {
+        return Math.pow((Math.pow((building.location.x - placed.location.x),2) + Math.pow((building.location.y - placed.location.y),2)),0.5);
     }
 
     public void decrementScore(float deltaTime) {
@@ -82,15 +104,6 @@ public class ScoreManager {
         return 0;
     }
 
-    /**
-     * Takes Building 1 and 2 and calculates distance
-     * d = sqroot( sq(x2 - x1) + sq(y2 -y1))
-     *
-     * @return distance between buildings
-     */
-    private int getBuildingDistance(Building placedBuilding) {
-        return 0;
-    }
 
 }
 
