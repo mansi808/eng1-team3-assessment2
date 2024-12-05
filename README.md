@@ -15,6 +15,5 @@ UniSim is a short 2D game in which you can take control of your own university -
 
 #### Accessing the ENG1 Assessment 2 website
 
-The new URL website is as following:
-    - https://mitkoooo.github.io/eng1-assessment2-website/
+https://mansi808.github.io/eng1-team3-assessment2/
 
