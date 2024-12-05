@@ -60,7 +60,6 @@ public class StartMenuScreen implements Screen {
     table.row();
     table.add(settingsButton).center().width(250).height(67);
     stage.addActor(table);
-
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
   }

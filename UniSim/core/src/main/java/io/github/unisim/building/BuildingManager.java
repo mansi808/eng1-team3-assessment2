@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
-import io.github.unisim.ScoreManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
