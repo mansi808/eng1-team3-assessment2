@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class AssetsTests extends AbstractHeadlessGdxTest {
+public class AssetTests extends AbstractHeadlessGdxTest {
   @Test
   public void testBuildingAssetExists() {
     // Restaurant
