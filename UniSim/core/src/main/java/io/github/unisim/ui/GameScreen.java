@@ -6,10 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import io.github.unisim.Event;
-import io.github.unisim.GameState;
-import io.github.unisim.PositiveEvent;
-import io.github.unisim.Timer;
+import io.github.unisim.*;
 import io.github.unisim.world.UiInputProcessor;
 import io.github.unisim.world.World;
 import io.github.unisim.world.WorldInputProcessor;
@@ -30,6 +27,7 @@ public class GameScreen implements Screen {
   private InputProcessor worldInputProcessor = new WorldInputProcessor(world);
   private InputMultiplexer inputMultiplexer = new InputMultiplexer();
   private GameOverMenu gameOverMenu = new GameOverMenu();
+  private EventManager eventManager;
 
   /**
    * Constructor for the GameScreen.
@@ -39,6 +37,7 @@ public class GameScreen implements Screen {
     infoBar = new InfoBar(stage, timer, world);
     buildingMenu = new BuildingMenu(stage, world);
     eventMenu = new EventMenu(stage, world.scoreManager);
+    eventManager = new EventManager(timer, eventMenu, world.scoreManager);
 
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
