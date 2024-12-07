@@ -17,9 +17,14 @@ public class Timer {
    */
   public Timer(float initialTime, ScoreManager gameScoreManager) {
     this.initialTime = initialTime;
+
     remainingTime = initialTime;
     hasFinished = false;
     scoreManager = gameScoreManager;
+
+    // Same thing but don't have to explicitly set to false / true anymore
+
+    hasFinished = initialTime <= 0;
   }
 
   /**
@@ -30,11 +35,18 @@ public class Timer {
    */
   public boolean tick(float deltaTime) {
     remainingTime -= deltaTime;
+
+    // please REDO, doesn't belong to this method
+    // importnant to have atomic methods for testing
+
     scoreManager.decrementScore(deltaTime);
     if (remainingTime > 0) {
       return true;
     } else {
-      hasFinished = true;
+
+      // no need as hasFinished <= 0
+      // hasFinished = true;
+
       return false;
     }
   }
@@ -44,8 +56,21 @@ public class Timer {
    */
   public void reset() {
     remainingTime = initialTime;
-    hasFinished = false;
+
+    // no need as hasFinished <= 0
+    // hasFinished = false;
   }
+
+ /**
+   * Return the remaining time as is.
+
+   * @return - remaining time (float)
+   */
+
+  public float getRemainingTimeFloat() {
+    return this.remainingTime;
+  }
+
 
   /**
    * Return the remaining time in a String representation.
