@@ -35,7 +35,7 @@ public class GameScreen implements Screen {
   public GameScreen() {
     scoreManager = new ScoreManager();
     world = new World(scoreManager);
-    timer = new Timer(300_000, scoreManager);
+    timer = new Timer(300_000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     uiInputProcessor = new UiInputProcessor(stage);
@@ -55,9 +55,18 @@ public class GameScreen implements Screen {
   @Override
   public void render(float delta) {
     world.render();
+    
+    final int MILLISEC_IN_SEC = 1000;
     float dt = Gdx.graphics.getDeltaTime();
+    float timeDelta = dt * MILLISEC_IN_SEC;
+    
     if (!GameState.paused && !GameState.gameOver) {
-      if (!timer.tick(dt * 1000)) {
+
+      timer.tick(timeDelta);
+
+      scoreManager.decrementScoreWithTime(timeDelta);
+
+      if (!timer.isRunning()) {
         GameState.gameOver = true;
         Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
       }

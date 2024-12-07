@@ -76,8 +76,7 @@ public class ScoreManager {
         return Math.pow((Math.pow((building.location.x - placed.location.x),2) + Math.pow((building.location.y - placed.location.y),2)),0.5);
     }
 
-    public void decrementScore(float deltaTime) {
-        if (!GameState.paused && !GameState.gameOver) {
+    public void decrementScoreWithTime(float deltaTime) {
             timeElapsed += deltaTime;
             if (timeElapsed >= decreaseInterval) {
                 if (score > 0) {
@@ -85,7 +84,6 @@ public class ScoreManager {
                     timeElapsed = 0;
                 }
             }
-        }
     }
 
     /**

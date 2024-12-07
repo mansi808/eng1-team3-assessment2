@@ -8,17 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TimerTests extends AbstractHeadlessGdxTest {
 
-  // @Test
+  @Test
 
-  // public void testTick() {
-  //   float initialTime = 5 * 60 * 1000;
+  public void testTick() {
+    float initialTime = 5 * 60 * 1000;
 
-  //   Timer TestTimer = new Timer(initialTime);
+    Timer TestTimer = new Timer(initialTime);
 
-  //   TestTimer.tick(1000);
+    TestTimer.tick(1000);
 
-  //   assertEquals(TestTimer.getRemainingTimeFloat(), initialTime - 1000);
+    assertEquals(TestTimer.getRemainingTime(), initialTime - 1000);
 
-  // }
+  }
   
 }
