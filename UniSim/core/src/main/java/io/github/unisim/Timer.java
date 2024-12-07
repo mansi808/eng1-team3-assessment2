@@ -22,6 +22,7 @@ public class Timer {
     hasFinished = false;
     scoreManager = gameScoreManager;
 
+
     // Same thing but don't have to explicitly set to false / true anymore
 
     hasFinished = initialTime <= 0;
