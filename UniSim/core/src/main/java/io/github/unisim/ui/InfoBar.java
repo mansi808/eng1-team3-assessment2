@@ -40,6 +40,7 @@ public class InfoBar {
   private Cell<Table> buildingCountersTableCell;
   private Cell[] buildingCounterCells;
   private World world;
+  private ScoreManager scoreManager;
 
 
   /**
@@ -47,11 +48,11 @@ public class InfoBar {
 
    * @param stage - The stage on which to draw the InfoBar.
    */
-  public InfoBar(Stage stage, Timer timer, World world) {
+  public InfoBar(Stage stage, Timer timer, World world, ScoreManager gameScoreManager) {
     this.timer = timer;
     this.world = world;
     buildingCounterCells = new Cell[4];
-    ScoreManager scoreManager = new ScoreManager();
+    scoreManager = gameScoreManager;
 
     // Building counter table
     for (int i = 0; i < 4; i++) {

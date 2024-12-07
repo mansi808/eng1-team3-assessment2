@@ -55,18 +55,19 @@ public class World {
   private Point topRight;
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
-  private ScoreManager scoreManager = new ScoreManager();
+  private ScoreManager scoreManager;
   private ArrayList<Building> buildings;
 
 
     /**
    * Create a new World.
    */
-  public World() {
+  public World(ScoreManager gameScoreManager) {
     camera.zoom = 0.05f;
     initIsometricTransform();
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
+    scoreManager = gameScoreManager;
   }
 
   /**

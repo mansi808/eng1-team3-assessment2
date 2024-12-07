@@ -7,7 +7,7 @@ public class Timer {
   private float remainingTime;
   private float initialTime;
   private boolean hasFinished;
-  private ScoreManager scoreManager = new ScoreManager();
+  private ScoreManager scoreManager;
 
 
   /**
@@ -15,10 +15,11 @@ public class Timer {
 
    * @param initialTime - The number of milliseconds before the timer ends
    */
-  public Timer(float initialTime) {
+  public Timer(float initialTime, ScoreManager gameScoreManager) {
     this.initialTime = initialTime;
     remainingTime = initialTime;
     hasFinished = false;
+    scoreManager = gameScoreManager;
   }
 
   /**
