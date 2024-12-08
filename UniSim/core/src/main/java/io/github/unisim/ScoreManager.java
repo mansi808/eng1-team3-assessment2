@@ -12,7 +12,6 @@ public class ScoreManager {
     public static int score;
     public float timeElapsed;
     public float decreaseInterval;
-    private World world;
 
     public ScoreManager() {
         score = 0;
@@ -28,24 +27,32 @@ public class ScoreManager {
      */
     public void UpdateScore(Building placed, ArrayList<Building> buildings, World world) {
         BuildingType type = placed.type;
+
+        // 1. Get total number of each category of buildings
         int recreational = world.getBuildingCount(BuildingType.RECREATION);
         int learning = world.getBuildingCount(BuildingType.LEARNING);
         int eating = world.getBuildingCount(BuildingType.EATING);
         int sleeping =world.getBuildingCount(BuildingType.SLEEPING);
 
+        // 2. Find the smallest and largest count among the 4 categories
         int minCount = Math.min(Math.min(recreational, eating), Math.min(sleeping, learning));
         int maxCount = Math.max(Math.max(recreational, eating), Math.max(sleeping, learning));
-        int imbalance = maxCount - minCount;
+
+        // TODO 3. For now just returns baseScore of 10 
         int baseScore = calculateBaseScore(placed, buildings);
+
+        // 4. The bigger imbalance grows, the smaller will score increase
+        int imbalance = maxCount - minCount;
         int scoreIncrease = imbalance * 2;
 
-        if((type.equals(BuildingType.RECREATION) && recreational == minCount) || (type.equals(BuildingType.LEARNING) && learning == minCount)
-            || (type.equals(BuildingType.SLEEPING) && sleeping == minCount) || (type.equals(BuildingType.EATING) && eating == minCount)) {
+        // 4. Handle cases when there are too few or too many buildings of the same type
+        int placedBuildingTypeCount = world.getBuildingCount(type); 
+
+        if(placedBuildingTypeCount == minCount) {
             score += baseScore + scoreIncrease;
-        } else if ((type.equals(BuildingType.RECREATION) && recreational == maxCount) || (type.equals(BuildingType.LEARNING) && learning == maxCount)
-            || (type.equals(BuildingType.SLEEPING) && sleeping == maxCount) || (type.equals(BuildingType.EATING) && eating == maxCount)) {
+        } else if (placedBuildingTypeCount == maxCount) {
             score += baseScore - scoreIncrease;
-        } else{
+        } else {
             score += baseScore;
         }
     }
