@@ -72,6 +72,7 @@ public class EventMenu {
 
     public void update() {
         eventLabel.setText(currentEvent.getMessage());
+        table.setVisible(true);
     }
 
 }
