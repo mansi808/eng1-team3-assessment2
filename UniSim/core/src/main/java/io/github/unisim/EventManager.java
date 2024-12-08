@@ -1,5 +1,6 @@
 package io.github.unisim;
 
+import com.badlogic.gdx.Gdx;
 import io.github.unisim.ui.EventMenu;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class EventManager {
     private EventMenu eventMenu;
     private Timer timer;
     private float timeElapsed;
-    private float interval = 5000;
+    private float interval = 100.0f;
 
 
     public EventManager(Timer timer, EventMenu eventMenu, ScoreManager scoreManager) {
@@ -27,9 +28,11 @@ public class EventManager {
         eventMenu.update();
     }
 
-    public void showEvent(float deltaTime) {
+    public void showEvent() {
+        float deltaTime = Gdx.graphics.getDeltaTime();
         timeElapsed += deltaTime;
         if (!GameState.paused && timeElapsed >= interval) {
+            GameState.paused = true;
             setEvents();
             timeElapsed = 0;
         }

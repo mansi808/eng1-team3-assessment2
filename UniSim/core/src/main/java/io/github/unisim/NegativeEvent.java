@@ -7,6 +7,6 @@ public class NegativeEvent extends Event{
     }
 
     public void getImpact() {
-        scoreManager.score -= 10;
+        scoreManager.negativeEventScore();
     }
 }

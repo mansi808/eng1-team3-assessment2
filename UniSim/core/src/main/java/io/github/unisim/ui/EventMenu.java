@@ -49,6 +49,7 @@ public class EventMenu {
                 GameState.currentScreen = GameState.gameScreen;
                 currentEvent.getImpact();
                 table.setVisible(false);
+                GameState.paused = true;
             }
         });
     }

@@ -7,7 +7,7 @@ public class PositiveEvent extends Event{
     }
 
     public void getImpact() {
-        scoreManager.score += 10;
+        scoreManager.positiveEventScore();
     }
 
 }

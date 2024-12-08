@@ -56,7 +56,7 @@ public class World {
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
 
-  private ScoreManager scoreManager;
+  public ScoreManager scoreManager;
   private ArrayList<Building> buildings;
 
 

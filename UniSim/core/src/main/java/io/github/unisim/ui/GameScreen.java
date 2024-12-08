@@ -33,6 +33,7 @@ public class GameScreen implements Screen {
   private InputMultiplexer inputMultiplexer = new InputMultiplexer();
   private GameOverMenu gameOverMenu = new GameOverMenu();
   private EventManager eventManager;
+  private ScoreManager scoreManager;
 
 
   /**
@@ -64,16 +65,17 @@ public class GameScreen implements Screen {
   @Override
   public void render(float delta) {
     world.render();
-    
+
     final int MILLISEC_IN_SEC = 1000;
     float dt = Gdx.graphics.getDeltaTime();
     float timeDelta = dt * MILLISEC_IN_SEC;
-    
+
     if (!GameState.paused && !GameState.gameOver) {
 
       timer.tick(timeDelta);
 
       scoreManager.decrementScoreWithTime(timeDelta);
+      eventManager.showEvent();
 
       if (!timer.isRunning()) {
         GameState.gameOver = true;

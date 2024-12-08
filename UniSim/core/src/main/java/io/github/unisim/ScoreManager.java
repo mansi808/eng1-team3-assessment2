@@ -86,11 +86,26 @@ public class ScoreManager {
             }
     }
 
+    public void negativeEventScore(){
+        if(score - 10 < 0){
+            score = 0;
+        } else {
+            score = score - 10;
+        }
+    }
+    public void positiveEventScore(){
+        if(score + 10 > 100){
+            score = 100;
+        } else {
+            score = score + 10;
+        }
+    }
+
     /**
      * Sets score when called to 0
      */
     public void setScore() {
-
+        score = 0;
     }
 
     /**
