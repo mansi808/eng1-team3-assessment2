@@ -26,7 +26,7 @@ public class InfoBar {
   private Table buildingCountersTable = new Table();
   private Label[] buildingCounterLabels = new Label[4];
   private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
-  private Label scoreLabel = new Label("86%", skin);
+  private Label scoreLabel = new Label(Integer.toString(ScoreManager.score), skin);
   private Label titleLabel = new Label("UniSim", skin);
   private Label timerLabel;
   private Texture pauseTexture = new Texture("ui/pause.png");
@@ -40,16 +40,20 @@ public class InfoBar {
   private Cell<Table> buildingCountersTableCell;
   private Cell[] buildingCounterCells;
   private World world;
+  private ScoreManager scoreManager;
+
 
   /**
    * Create a new infoBar and draws its' components onto the provided stage.
 
    * @param stage - The stage on which to draw the InfoBar.
    */
-  public InfoBar(Stage stage, Timer timer, World world) {
+  public InfoBar(Stage stage, Timer timer, World world, ScoreManager gameScoreManager) {
     this.timer = timer;
     this.world = world;
     buildingCounterCells = new Cell[4];
+
+    scoreManager = gameScoreManager;
 
     // Building counter table
     for (int i = 0; i < 4; i++) {
@@ -62,7 +66,7 @@ public class InfoBar {
     buildingCounterCells[3] = buildingCountersTable.add(buildingCounterLabels[3]);
 
     // Info Table
-    timerLabel = new Label(timer.getRemainingTime(), skin);
+    timerLabel = new Label(timer.getRemainingTimeToString(), skin);
     infoTable.center().center();
     pauseButtonCell = infoTable.add(playImage).align(Align.center);
     timerLabelCell = infoTable.add(timerLabel).align(Align.center);
@@ -100,7 +104,7 @@ public class InfoBar {
    * Called when the UI needs to be updated, usually on every frame.
    */
   public void update() {
-    timerLabel.setText(timer.getRemainingTime());
+    timerLabel.setText(timer.getRemainingTimeToString());
     buildingCounterLabels[0].setText("Recreation: "
         + Integer.toString(world.getBuildingCount(BuildingType.RECREATION)));
     buildingCounterLabels[1].setText("Learning: "

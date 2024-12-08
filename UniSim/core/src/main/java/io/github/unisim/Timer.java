@@ -8,6 +8,7 @@ public class Timer {
   private float initialTime;
   private boolean hasFinished;
 
+
   /**
    * Create a new timer set to count down from an initial number of milliseconds.
 
@@ -16,7 +17,7 @@ public class Timer {
   public Timer(float initialTime) {
     this.initialTime = initialTime;
     remainingTime = initialTime;
-    hasFinished = false;
+    hasFinished = remainingTime <= 0;
   }
 
   /**
@@ -25,30 +26,38 @@ public class Timer {
    * @param deltaTime - the time in milliseconds to remove from the counter
    * @return - true if the timer is running and the time has been decremented, false otherwise.
    */
-  public boolean tick(float deltaTime) {
+  public void tick(float deltaTime) {
     remainingTime -= deltaTime;
-    if (remainingTime > 0) {
-      return true;
-    } else {
-      hasFinished = true;
-      return false;
-    }
+    
+    hasFinished = remainingTime <= 0;
   }
 
   /**
-   * Reset the timer to its' initial time value. 
+   * Reset the timer to its' initial time value.
    */
   public void reset() {
     remainingTime = initialTime;
+
     hasFinished = false;
   }
+
+    /**
+   * Return the remaining time in a float representation.
+
+   * @return Remaining time
+   */
+  public float getRemainingTime() {
+    // get the number of minutes and seconds from the remaining time in milliseconds.
+    return this.remainingTime;
+  }
+
 
   /**
    * Return the remaining time in a String representation.
 
    * @return - remaining time in the form MM:SS
    */
-  public String getRemainingTime() {
+  public String getRemainingTimeToString() {
     // get the number of minutes and seconds from the remaining time in milliseconds.
     int remainingMinutes = (int) ((remainingTime + 1000) / 60_000);
     int remainingSeconds = (int) Math.ceil(remainingTime / 1000 - 60 * remainingMinutes);

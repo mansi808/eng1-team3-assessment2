@@ -6,7 +6,12 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 import io.github.unisim.*;
+import io.github.unisim.GameState;
+import io.github.unisim.ScoreManager;
+import io.github.unisim.Timer;
+
 import io.github.unisim.world.UiInputProcessor;
 import io.github.unisim.world.World;
 import io.github.unisim.world.WorldInputProcessor;
@@ -16,7 +21,7 @@ import io.github.unisim.world.WorldInputProcessor;
  * Supports pausing the game with a pause menu.
  */
 public class GameScreen implements Screen {
-  private World world = new World();
+  private World world;
   private Stage stage = new Stage(new ScreenViewport());
 
   private EventMenu eventMenu;
@@ -29,16 +34,23 @@ public class GameScreen implements Screen {
   private GameOverMenu gameOverMenu = new GameOverMenu();
   private EventManager eventManager;
 
+
   /**
    * Constructor for the GameScreen.
    */
   public GameScreen() {
+    scoreManager = new ScoreManager();
+    world = new World(scoreManager);
     timer = new Timer(300_000);
-    infoBar = new InfoBar(stage, timer, world);
+    infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventMenu = new EventMenu(stage, world.scoreManager);
     eventManager = new EventManager(timer, eventMenu, world.scoreManager);
 
+    uiInputProcessor = new UiInputProcessor(stage);
+    worldInputProcessor = new WorldInputProcessor(world);
+    inputMultiplexer = new InputMultiplexer();
+    gameOverMenu = new GameOverMenu();
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
     inputMultiplexer.addProcessor(uiInputProcessor);
@@ -52,9 +64,18 @@ public class GameScreen implements Screen {
   @Override
   public void render(float delta) {
     world.render();
+    
+    final int MILLISEC_IN_SEC = 1000;
     float dt = Gdx.graphics.getDeltaTime();
+    float timeDelta = dt * MILLISEC_IN_SEC;
+    
     if (!GameState.paused && !GameState.gameOver) {
-      if (!timer.tick(dt * 1000)) {
+
+      timer.tick(timeDelta);
+
+      scoreManager.decrementScoreWithTime(timeDelta);
+
+      if (!timer.isRunning()) {
         GameState.gameOver = true;
         Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
       }

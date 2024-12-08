@@ -1,5 +1,6 @@
 package io.github.unisim.world;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -20,6 +21,8 @@ import io.github.unisim.ScoreManager;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
+
+import java.util.ArrayList;
 
 /**
  * A class that holds all the gameplay elements of the game UniSim.
@@ -52,17 +55,20 @@ public class World {
   private Point topRight;
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
-  public ScoreManager scoreManager = new ScoreManager();
+
+  private ScoreManager scoreManager;
+  private ArrayList<Building> buildings;
 
 
     /**
    * Create a new World.
    */
-  public World() {
+  public World(ScoreManager gameScoreManager) {
     camera.zoom = 0.05f;
     initIsometricTransform();
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
+    scoreManager = gameScoreManager;
   }
 
   /**
@@ -329,7 +335,7 @@ public class World {
    * @return - True if building could be done successfully, false otherwise.
    */
   public boolean placeBuilding() {
-    if (!canBuild) {
+    if (!canBuild || GameState.paused) {
       return false;
     }
     buildingManager.placeBuilding(
@@ -339,8 +345,9 @@ public class World {
         selectedBuilding.flipped, selectedBuilding.type, selectedBuilding.name
       )
     );
+    buildings = buildingManager.getBuildings();
+    scoreManager.UpdateScore(selectedBuilding, buildings, this);
     selectedBuilding = null;
-    scoreManager.UpdateScore();
     return true;
   }
 
@@ -369,5 +376,8 @@ public class World {
     initIsometricTransform();
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
+  }
+  public BuildingManager getBuildingManager() {
+      return buildingManager;
   }
 }

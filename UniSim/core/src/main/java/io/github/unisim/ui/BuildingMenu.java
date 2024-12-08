@@ -85,6 +85,7 @@ public class BuildingMenu {
         BuildingType.SLEEPING,
         "Student Accomodation"
     ));
+
       buildings.add(new Building(
           new Texture(Gdx.files.internal("buildings/bakery.png")),
           0.0060f,
@@ -108,7 +109,7 @@ public class BuildingMenu {
             world.selectedBuilding = null;
           } else {
             world.selectedBuilding = buildings.get(buildingIndex);
-            buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate");
+            buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n Cannot build when paused \n");
             if (world.selectedBuilding.flipped) {
               world.selectedBuilding.flipped = false;
               int temp = world.selectedBuilding.size.x;
