@@ -6,9 +6,12 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
+import io.github.unisim.*;
 import io.github.unisim.GameState;
 import io.github.unisim.ScoreManager;
 import io.github.unisim.Timer;
+
 import io.github.unisim.world.UiInputProcessor;
 import io.github.unisim.world.World;
 import io.github.unisim.world.WorldInputProcessor;
@@ -20,14 +23,17 @@ import io.github.unisim.world.WorldInputProcessor;
 public class GameScreen implements Screen {
   private World world;
   private Stage stage = new Stage(new ScreenViewport());
+
+  private EventMenu eventMenu;
   private InfoBar infoBar;
   private BuildingMenu buildingMenu;
   private Timer timer;
-  private InputProcessor uiInputProcessor;
-  private InputProcessor worldInputProcessor;
-  private InputMultiplexer inputMultiplexer;
-  private GameOverMenu gameOverMenu;
-  private ScoreManager scoreManager;
+  private InputProcessor uiInputProcessor = new UiInputProcessor(stage);
+  private InputProcessor worldInputProcessor = new WorldInputProcessor(world);
+  private InputMultiplexer inputMultiplexer = new InputMultiplexer();
+  private GameOverMenu gameOverMenu = new GameOverMenu();
+  private EventManager eventManager;
+
 
   /**
    * Constructor for the GameScreen.
@@ -38,6 +44,9 @@ public class GameScreen implements Screen {
     timer = new Timer(300_000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
+    eventMenu = new EventMenu(stage, world.scoreManager);
+    eventManager = new EventManager(timer, eventMenu, world.scoreManager);
+
     uiInputProcessor = new UiInputProcessor(stage);
     worldInputProcessor = new WorldInputProcessor(world);
     inputMultiplexer = new InputMultiplexer();
@@ -89,6 +98,7 @@ public class GameScreen implements Screen {
     infoBar.resize(width, height);
     buildingMenu.resize(width, height);
     gameOverMenu.resize(width, height);
+    eventMenu.resize(width,height);
   }
 
   @Override

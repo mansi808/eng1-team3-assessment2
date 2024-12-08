@@ -55,6 +55,7 @@ public class World {
   private Point topRight;
   public Building selectedBuilding;
   public boolean selectedBuildingUpdated;
+
   private ScoreManager scoreManager;
   private ArrayList<Building> buildings;
 

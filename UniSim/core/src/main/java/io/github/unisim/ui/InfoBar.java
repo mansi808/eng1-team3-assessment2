@@ -52,6 +52,7 @@ public class InfoBar {
     this.timer = timer;
     this.world = world;
     buildingCounterCells = new Cell[4];
+
     scoreManager = gameScoreManager;
 
     // Building counter table
