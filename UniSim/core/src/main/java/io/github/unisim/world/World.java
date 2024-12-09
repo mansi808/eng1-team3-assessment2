@@ -1,6 +1,5 @@
 package io.github.unisim.world;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -346,7 +345,7 @@ public class World {
       )
     );
     buildings = buildingManager.getBuildings();
-    scoreManager.UpdateScore(selectedBuilding, buildings, this);
+    scoreManager.updateScore(selectedBuilding, buildings, this);
     selectedBuilding = null;
     return true;
   }

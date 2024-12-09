@@ -7,21 +7,21 @@ public abstract class Event {
      * If true, player can respond to event, if negative, mitigate the situation
      */
     public boolean respond;
-    private String message;
+    private String prompt;
+
     ScoreManager scoreManager;
 
 
-    public Event(String message, ScoreManager scoreManager) {
-        this.message = message;
+    public Event(String prompt, ScoreManager scoreManager) {
+        this.prompt = prompt;
         this.scoreManager = scoreManager;
-
         this.respond = false;
     }
 
     public String getMessage() {
-        return message;
+        return prompt;
     }
 
-    public abstract void getImpact();
+    public abstract void getImpact(String buttonMessage);
 
 }
