@@ -55,16 +55,22 @@ public class EventMenu {
     }
 
     public void setCurrentEvent(Event event) {
+
         this.currentEvent = event;
     }
 
     public void update() {
-        createPopUp();
-        eventLabel.setText(currentEvent.getMessage());
-        table.setVisible(true);
+        if (currentEvent.getClass().equals(singleEvent.class)) {
+            createSinglePopUp(currentEvent);
+
+        } else if (currentEvent.getClass().equals(ChoiceEvent.class)) {
+            createChoicePopUp((ChoiceEvent) currentEvent);
+
+        }
+
     }
 
-    public void createPopUp(){
+    public void createSinglePopUp(Event currentEvent){
         this.table = new Table();
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
 
@@ -74,19 +80,58 @@ public class EventMenu {
         table.row();
         table.add(continueButton).align(Align.center);
 
-        table.setVisible(false);
         stage.addActor(table);
 
         continueButton.addListener(new ClickListener() {
             @Override
             public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
                 GameState.currentScreen = GameState.gameScreen;
-                currentEvent.getImpact();
+                currentEvent.getImpact((eventLabel.toString()));
                 table.setVisible(false);
                 GameState.paused = false;
                 table.remove();
             }
         });
+        eventLabel.setText(currentEvent.getMessage());
+        table.setVisible(true);
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    }
+
+    public void createChoicePopUp(ChoiceEvent currentEvent){
+        this.table = new Table();
+        Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
+
+        eventLabel = new Label("", skin);
+        eventLabelCell = table.add(eventLabel).align(Align.center);
+        table.setBackground(new TextureRegionDrawable(backgroundTexture));
+        table.row();
+        TextButton firstOption = new TextButton(currentEvent.getPositiveMessage(), skin);
+        TextButton secondOption = new TextButton(currentEvent.getNegativeMessage(), skin);
+        table.add(firstOption).align(Align.left);
+        table.add(secondOption).align(Align.right);
+
+        stage.addActor(table);
+
+        firstOption.addListener(new ClickListener() {
+            @Override
+            public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
+                GameState.currentScreen = GameState.gameScreen;
+                currentEvent.getImpact((firstOption.getLabel()).getText().toString());
+                GameState.paused = false;
+                table.remove();
+            }
+        });
+        secondOption.addListener(new ClickListener() {
+            @Override
+            public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
+                GameState.currentScreen = GameState.gameScreen;
+                currentEvent.getImpact((secondOption.getLabel()).getText().toString());
+                GameState.paused = false;
+                table.remove();
+            }
+        });
+        eventLabel.setText(currentEvent.getMessage());
+        table.setVisible(true);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 }

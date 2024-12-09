@@ -28,7 +28,7 @@ public class ScoreManager {
         BuildingType type = placed.type;
 
         // 1. Initialize counters
-        
+
         int recreationalCount = 0;
         int learningCount = 0;
         int sleepingCount = 0;
@@ -40,7 +40,7 @@ public class ScoreManager {
 
         for (BuildingTuple eachTuple : buildingTuples) {
 
-            // Get counts from the array 
+            // Get counts from the array
             if (eachTuple.type == type) placedCount = eachTuple.count;
 
             switch (eachTuple.type) {
@@ -60,14 +60,14 @@ public class ScoreManager {
                 default:
                     break;
             }
-            
+
         };
 
         // 3. Find the smallest and largest count among the 4 categories
         int minCount = Math.min(Math.min(recreationalCount, eatingCount), Math.min(sleepingCount, learningCount));
         int maxCount = Math.max(Math.max(recreationalCount, eatingCount), Math.max(sleepingCount, learningCount));
 
-        // TODO 4. For now just returns baseScore of 10 
+        // TODO 4. For now just returns baseScore of 10
         int baseScoreChange = calculateBaseScore(placed, buildings);
 
         // 5. The bigger imbalance grows, the smaller will score Change
@@ -119,21 +119,7 @@ public class ScoreManager {
             }
     }
 
-    public void negativeEventScore(){
-        if(score - 10 < 0){
-            resetScore();
-        } else {
-            setScore(score - 10);
-        }
-    }
-    public void positiveEventScore(){
 
-        if(score + 10 > 100){
-            setScore(100);
-        } else {
-            setScore(score + 10);
-        }
-    }
 
     /**
      * Sets score to 0 when called
@@ -156,6 +142,10 @@ public class ScoreManager {
      */
     public int getScore() {
         return score;
+    }
+
+    public void updateScore(int updateValue){
+        score += updateValue;
     }
 
 
