@@ -45,6 +45,7 @@ public class GameScreen implements Screen {
     timer = new Timer(300_000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
+    eventMenu = new EventMenu(stage, world.scoreManager);
     eventManager = new EventManager(timer, stage, world.scoreManager);
 
     uiInputProcessor = new UiInputProcessor(stage);
@@ -74,8 +75,7 @@ public class GameScreen implements Screen {
       timer.tick(timeDelta);
 
       scoreManager.decrementScoreWithTime(timeDelta);
-      eventMenu = eventManager.showEvent();
-      resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+      eventManager.showEvent();
 
       if (!timer.isRunning()) {
         GameState.gameOver = true;
@@ -100,9 +100,8 @@ public class GameScreen implements Screen {
     infoBar.resize(width, height);
     buildingMenu.resize(width, height);
     gameOverMenu.resize(width, height);
-    if (eventMenu != null){
-    eventMenu.resize(width, height);
-  }}
+    eventMenu.resize(width,height);
+  }
 
   @Override
   public void pause() {
