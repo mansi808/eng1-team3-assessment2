@@ -11,7 +11,7 @@ public class EventManager {
     private EventMenu eventMenu;
     private Timer timer;
     private float timeElapsed;
-    private float interval = 100f;
+    private float interval = 90f;
     private Stage stage;
     private ScoreManager scoreManager;
 
@@ -22,9 +22,8 @@ public class EventManager {
 
 
         // Add different types of events
-        events.add(new PositiveEvent("This is a positive event.", scoreManager));
-        events.add(new NegativeEvent("This is a negative event.", scoreManager));
-        events.add(new NeutralEvent("This is a neutral event.", scoreManager));
+        events.add(new singleEvent("Good thing happens", scoreManager, 10));
+        events.add( new ChoiceEvent("Good or Bad?", scoreManager, "Good", "Bad"));
     }
 
     public EventMenu setEvents() {
