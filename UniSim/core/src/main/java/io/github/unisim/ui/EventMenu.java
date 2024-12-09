@@ -28,9 +28,42 @@ public class EventMenu {
     private Label eventLabel;
     private TextButton continueButton = new TextButton("Continue", GameState.defaultSkin);
     private Event currentEvent;
+    private Stage stage;
 
 
     public EventMenu(Stage stage, ScoreManager scoreManager) {
+        this.stage = stage;
+        this.table = null;
+
+    }
+
+    /**
+     * Update the bounds of the background & table actors to fit the new size of the screen.
+
+     * @param width - The new width of the screen in pixels.
+     * @param height - The enw height of the screen in pixels.
+     */
+    public void resize(int width, int height) {
+        popUpWindow.setBounds(width*0.35f, height * 0.4f,width*0.3f, height*0.3f);
+        if (table!=null) {
+            table.setBounds(width * 0.35f, height * 0.4f, width * 0.3f, height * 0.3f);
+            eventLabelCell.width(width * 0.2f).height(height * 0.2f);
+            eventLabel.setFontScale(height * 0.0015f);
+        }
+
+    }
+
+    public void setCurrentEvent(Event event) {
+        this.currentEvent = event;
+    }
+
+    public void update() {
+        createPopUp();
+        eventLabel.setText(currentEvent.getMessage());
+        table.setVisible(true);
+    }
+
+    public void createPopUp(){
         this.table = new Table();
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
 
@@ -49,31 +82,10 @@ public class EventMenu {
                 GameState.currentScreen = GameState.gameScreen;
                 currentEvent.getImpact();
                 table.setVisible(false);
-                GameState.paused = true;
+                GameState.paused = false;
+                table.remove();
             }
         });
+        resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
-
-    /**
-     * Update the bounds of the background & table actors to fit the new size of the screen.
-
-     * @param width - The new width of the screen in pixels.
-     * @param height - The enw height of the screen in pixels.
-     */
-    public void resize(int width, int height) {
-        popUpWindow.setBounds(width*0.35f, height * 0.4f,width*0.3f, height*0.3f);
-        table.setBounds(width*0.35f, height * 0.4f,width*0.3f, height*0.3f);
-        eventLabelCell.width(width * 0.2f).height(height * 0.2f);
-        eventLabel.setFontScale(height * 0.0015f);
-    }
-
-    public void setCurrentEvent(Event event) {
-        this.currentEvent = event;
-    }
-
-    public void update() {
-        eventLabel.setText(currentEvent.getMessage());
-        table.setVisible(true);
-    }
-
 }
