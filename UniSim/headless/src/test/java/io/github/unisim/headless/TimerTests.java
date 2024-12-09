@@ -21,14 +21,19 @@ public class TimerTests extends AbstractHeadlessGdxTest {
 
     Timer TestTimer = new Timer(initialTime);
 
+    // Ticking 1 second should decrease remaining time by 1 sec
+
     TestTimer.tick( 1 * NUM_MILLISEC_IN_SEC);
 
-    assertEquals(TestTimer.getRemainingTime(), initialTime - ( 1 * NUM_MILLISEC_IN_SEC ));
+    assertEquals( initialTime - ( 1 * NUM_MILLISEC_IN_SEC ), TestTimer.getRemainingTime() );
 
     initialTime -= 1 * NUM_MILLISEC_IN_SEC;
-    TestTimer.tick(5 * NUM_MILLISEC_IN_SEC);
 
-    assertEquals(TestTimer.getRemainingTime(), initialTime - ( 5 * NUM_MILLISEC_IN_SEC ));
+    // Ticking by more than the Timer's remaining time, tick should set remaining time to 0
+
+    TestTimer.tick(numMin * NUM_SEC_IN_MIN * NUM_MILLISEC_IN_SEC);
+
+    assertEquals(0, TestTimer.getRemainingTime());
 
   }
 
@@ -36,11 +41,13 @@ public class TimerTests extends AbstractHeadlessGdxTest {
 
   public void testGetRemainingTimeToString() {
 
+    // Returning remaining time as string should return correct format 
+
     float initialTime = numMin * NUM_SEC_IN_MIN * NUM_MILLISEC_IN_SEC;
 
     Timer TestTimer = new Timer(initialTime);
 
-    assertEquals(TestTimer.getRemainingTimeToString(), "05:00");
+    assertEquals("05:00", TestTimer.getRemainingTimeToString());
 
   }
 
@@ -52,9 +59,13 @@ public class TimerTests extends AbstractHeadlessGdxTest {
 
     Timer TestTimer = new Timer(initialTime);
 
+    // Timer should be running in the beginning
+
     assertEquals(TestTimer.isRunning(), true);
 
     TestTimer.tick(initialTime);
+
+    // When timer finished, it should stop running
 
     assertEquals(TestTimer.isRunning(), false);
 

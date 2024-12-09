@@ -12,13 +12,11 @@ import java.util.ArrayList;
 public class ScoreManager {
     public static int score;
     public float timeElapsed;
-    public float decreaseInterval;
+    private final float DECREASE_INTERVAL = 2000;
 
     public ScoreManager() {
         score = 0;
         timeElapsed = 0;
-        decreaseInterval = 2000;
-
     }
 
     /**
@@ -70,22 +68,19 @@ public class ScoreManager {
         int maxCount = Math.max(Math.max(recreationalCount, eatingCount), Math.max(sleepingCount, learningCount));
 
         // TODO 4. For now just returns baseScore of 10 
-        int baseScore = calculateBaseScore(placed, buildings);
+        int baseScoreChange = calculateBaseScore(placed, buildings);
 
-        // 5. The bigger imbalance grows, the smaller will score increase
-        int imbalance = maxCount - minCount;
-        int scoreIncrease = imbalance * 2;
+        // 5. The bigger imbalance grows, the smaller will score Change
+        final int SCORE_MULTIPLIER = 2;
+
+        int imbalanceScoreChange = (maxCount - minCount) * SCORE_MULTIPLIER;
 
         // 6. Handle cases when there are too few or too many buildings of the same type
-        
+        int totalScoreChange = baseScoreChange;
 
-        if(placedCount == minCount) {
-            score += baseScore + scoreIncrease;
-        } else if (placedCount == maxCount) {
-            score += baseScore - scoreIncrease;
-        } else {
-            score += baseScore;
-        }
+        totalScoreChange = placedCount == minCount ? totalScoreChange + imbalanceScoreChange : placedCount == maxCount ? totalScoreChange - imbalanceScoreChange : totalScoreChange;
+
+        setScore(score + totalScoreChange);
     }
 
     public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
@@ -116,9 +111,9 @@ public class ScoreManager {
 
     public void decrementScoreWithTime(float deltaTime) {
             timeElapsed += deltaTime;
-            if (timeElapsed >= decreaseInterval) {
+            if (timeElapsed >= DECREASE_INTERVAL) {
                 if (score > 0) {
-                    score -= 1;
+                    setScore(--score);
                     timeElapsed = 0;
                 }
             }
@@ -126,30 +121,38 @@ public class ScoreManager {
 
     public void negativeEventScore(){
         if(score - 10 < 0){
-            score = 0;
+            resetScore();
         } else {
-            score = score - 10;
+            setScore(score - 10);
         }
     }
     public void positiveEventScore(){
+
         if(score + 10 > 100){
-            score = 100;
+            setScore(100);
         } else {
-            score = score + 10;
+            setScore(score + 10);
         }
     }
 
     /**
-     * Sets score when called to 0
+     * Sets score to 0 when called
      */
-    public void setScore() {
+    public void resetScore() {
         score = 0;
     }
 
     /**
-     * Returns score
+     * Sets user score to the parameter newValue
+     */
+    public void setScore(int newValue) {
+        score = newValue;
+    }
+
+    /**
+     * Returns user score of the current session
      *
-     * @return
+     * @return current score (int)
      */
     public int getScore() {
         return score;
