@@ -36,6 +36,7 @@ public class ScoreManager {
 
         int placedCount = 0;
 
+
         // 2. Get total number of each category of buildings
 
         for (BuildingTuple eachTuple : buildingTuples) {
