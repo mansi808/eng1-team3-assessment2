@@ -15,9 +15,9 @@ public class EventManager {
     private Stage stage;
     private ScoreManager scoreManager;
 
-    public EventManager(Timer timer, Stage stage, ScoreManager scoreManager) {
+    public EventManager(Timer timer, EventMenu eventMenu, ScoreManager scoreManager) {
         this.timer = timer;
-        this.stage = stage;
+        this.eventMenu = eventMenu;
         this.scoreManager = scoreManager;
 
 
@@ -29,8 +29,6 @@ public class EventManager {
 
     public EventMenu setEvents() {
         // Create a new event menu and set the current event
-        eventMenu = new EventMenu(stage, scoreManager);
-        System.out.println(stage);
         Event currentEvent = getRandomEvent();
         eventMenu.setCurrentEvent(currentEvent);
         eventMenu.update();

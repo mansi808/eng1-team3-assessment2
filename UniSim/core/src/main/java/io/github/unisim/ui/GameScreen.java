@@ -46,7 +46,7 @@ public class GameScreen implements Screen {
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventMenu = new EventMenu(stage, world.scoreManager);
-    eventManager = new EventManager(timer, stage, world.scoreManager);
+    eventManager = new EventManager(timer, eventMenu, world.scoreManager);
 
     uiInputProcessor = new UiInputProcessor(stage);
     worldInputProcessor = new WorldInputProcessor(world);
