@@ -20,6 +20,7 @@ public class EventManager {
         this.stage = stage;
         this.scoreManager = scoreManager;
 
+
         // Add different types of events
         events.add(new PositiveEvent("This is a positive event.", scoreManager));
         events.add(new NegativeEvent("This is a negative event.", scoreManager));
