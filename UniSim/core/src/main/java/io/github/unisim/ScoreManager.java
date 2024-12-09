@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
+import io.github.unisim.building.data.types.BuildingTuple;
 import io.github.unisim.world.World;
 
 import java.util.ArrayList;
@@ -25,32 +26,62 @@ public class ScoreManager {
      * building is
      *
      */
-    public void UpdateScore(Building placed, ArrayList<Building> buildings, World world) {
+    public void updateScore(Building placed, ArrayList<Building> buildings, ArrayList<BuildingTuple> buildingTuples) {
         BuildingType type = placed.type;
 
-        // 1. Get total number of each category of buildings
-        int recreational = world.getBuildingCount(BuildingType.RECREATION);
-        int learning = world.getBuildingCount(BuildingType.LEARNING);
-        int eating = world.getBuildingCount(BuildingType.EATING);
-        int sleeping =world.getBuildingCount(BuildingType.SLEEPING);
+        // 1. Initialize counters
+        
+        int recreationalCount = 0;
+        int learningCount = 0;
+        int sleepingCount = 0;
+        int eatingCount = 0;
 
-        // 2. Find the smallest and largest count among the 4 categories
-        int minCount = Math.min(Math.min(recreational, eating), Math.min(sleeping, learning));
-        int maxCount = Math.max(Math.max(recreational, eating), Math.max(sleeping, learning));
+        int placedCount = 0;
 
-        // TODO 3. For now just returns baseScore of 10 
+        // 2. Get total number of each category of buildings
+
+        for (BuildingTuple eachTuple : buildingTuples) {
+
+            // Get counts from the array 
+            if (eachTuple.type == type) placedCount = eachTuple.count;
+
+            switch (eachTuple.type) {
+
+                case RECREATION:
+                    recreationalCount = eachTuple.count;
+
+                case LEARNING:
+                    learningCount = eachTuple.count;
+
+                case SLEEPING:
+                    sleepingCount = eachTuple.count;
+
+                case EATING:
+                    eatingCount = eachTuple.count;
+
+                default:
+                    break;
+            }
+            
+        };
+
+        // 3. Find the smallest and largest count among the 4 categories
+        int minCount = Math.min(Math.min(recreationalCount, eatingCount), Math.min(sleepingCount, learningCount));
+        int maxCount = Math.max(Math.max(recreationalCount, eatingCount), Math.max(sleepingCount, learningCount));
+
+        // TODO 4. For now just returns baseScore of 10 
         int baseScore = calculateBaseScore(placed, buildings);
 
-        // 4. The bigger imbalance grows, the smaller will score increase
+        // 5. The bigger imbalance grows, the smaller will score increase
         int imbalance = maxCount - minCount;
         int scoreIncrease = imbalance * 2;
 
-        // 4. Handle cases when there are too few or too many buildings of the same type
-        int placedBuildingTypeCount = world.getBuildingCount(type); 
+        // 6. Handle cases when there are too few or too many buildings of the same type
+        
 
-        if(placedBuildingTypeCount == minCount) {
+        if(placedCount == minCount) {
             score += baseScore + scoreIncrease;
-        } else if (placedBuildingTypeCount == maxCount) {
+        } else if (placedCount == maxCount) {
             score += baseScore - scoreIncrease;
         } else {
             score += baseScore;
@@ -121,7 +152,7 @@ public class ScoreManager {
      * @return
      */
     public int getScore() {
-        return 0;
+        return score;
     }
 
 

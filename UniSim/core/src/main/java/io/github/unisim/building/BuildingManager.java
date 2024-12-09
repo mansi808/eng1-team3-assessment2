@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
+import io.github.unisim.building.data.types.BuildingTuple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -227,4 +228,15 @@ public class BuildingManager {
   public ArrayList<Building> getBuildings(){
     return buildings;
   }
+
+  public ArrayList<BuildingTuple> getBuildingsCount() {
+    ArrayList<BuildingTuple> res = new ArrayList<BuildingTuple>();
+  
+    for (BuildingType buildingType : BuildingType.values()) {
+      res.add(new BuildingTuple(getBuildingCount(buildingType), buildingType));
+    }
+
+    return res;
+  }
 }
+
