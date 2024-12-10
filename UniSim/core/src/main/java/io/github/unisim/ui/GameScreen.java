@@ -34,6 +34,7 @@ public class GameScreen implements Screen {
   private GameOverMenu gameOverMenu = new GameOverMenu();
   private EventManager eventManager;
   private ScoreManager scoreManager;
+  private Leaderboard leaderboard;
 
 
   /**
@@ -42,7 +43,7 @@ public class GameScreen implements Screen {
   public GameScreen() {
     scoreManager = new ScoreManager();
     world = new World(scoreManager);
-    timer = new Timer(300_000);
+    timer = new Timer(1_000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventMenu = new EventMenu(stage, world.scoreManager);
@@ -52,6 +53,7 @@ public class GameScreen implements Screen {
     worldInputProcessor = new WorldInputProcessor(world);
     inputMultiplexer = new InputMultiplexer();
     gameOverMenu = new GameOverMenu();
+    leaderboard = new Leaderboard(gameOverMenu.stage, scoreManager);
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
     inputMultiplexer.addProcessor(uiInputProcessor);
@@ -101,6 +103,7 @@ public class GameScreen implements Screen {
     buildingMenu.resize(width, height);
     gameOverMenu.resize(width, height);
     eventMenu.resize(width,height);
+    leaderboard.resize(width,height);
   }
 
   @Override

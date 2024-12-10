@@ -11,7 +11,7 @@ public class EventManager {
     private EventMenu eventMenu;
     private Timer timer;
     private float timeElapsed;
-    private float interval = 100f;
+    private float interval = 90f;
     private Stage stage;
     private ScoreManager scoreManager;
 
