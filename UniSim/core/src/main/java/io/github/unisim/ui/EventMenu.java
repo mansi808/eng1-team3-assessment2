@@ -32,10 +32,9 @@ public class EventMenu {
     private Stage stage;
 
 
-    public EventMenu(Stage stage, ScoreManager scoreManager) {
+    public EventMenu(Stage stage) {
         this.stage = stage;
         this.table = null;
-
     }
 
     /**

@@ -1,6 +1,5 @@
 package io.github.unisim.world;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,13 +14,11 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import io.github.unisim.GameState;
-import io.github.unisim.Point;
-import io.github.unisim.ScoreManager;
+import io.github.unisim.*;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
-import io.github.unisim.building.data.types.BuildingTuple;
+import io.github.unisim.ui.AchievementMenu;
 
 import java.util.ArrayList;
 
@@ -59,16 +56,18 @@ public class World {
 
   public ScoreManager scoreManager;
   private ArrayList<Building> buildings;
+  private AchievementManager achievementManager;
 
     /**
    * Create a new World.
    */
-  public World(ScoreManager gameScoreManager) {
+  public World(ScoreManager gameScoreManager, AchievementMenu achievementMenu) {
     camera.zoom = 0.05f;
     initIsometricTransform();
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
     scoreManager = gameScoreManager;
+    achievementManager =new AchievementManager(scoreManager, buildingManager, achievementMenu);
   }
 
   /**
@@ -347,6 +346,9 @@ public class World {
     );
     buildings = buildingManager.getBuildings();
     scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingsCount());
+
+
+
     selectedBuilding = null;
     return true;
   }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
+import io.github.unisim.AchievementManager;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
 import io.github.unisim.building.data.types.BuildingTuple;
@@ -27,7 +28,6 @@ public class BuildingManager {
 
   public BuildingManager(Matrix4 isoTransform) {
     this.isoTransform = isoTransform;
-
   }
 
   /**
@@ -147,6 +147,7 @@ public class BuildingManager {
     }
     buildings.add(i, building);
     updateCounters(building);
+
     return i;
   }
 
@@ -231,7 +232,7 @@ public class BuildingManager {
 
   public ArrayList<BuildingTuple> getBuildingsCount() {
     ArrayList<BuildingTuple> res = new ArrayList<BuildingTuple>();
-  
+
     for (BuildingType buildingType : BuildingType.values()) {
       res.add(new BuildingTuple(getBuildingCount(buildingType), buildingType));
     }
