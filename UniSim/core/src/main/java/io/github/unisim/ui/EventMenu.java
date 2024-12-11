@@ -105,8 +105,18 @@ public class EventMenu {
         eventLabelCell = table.add(eventLabel).align(Align.center);
         table.setBackground(new TextureRegionDrawable(backgroundTexture));
         table.row();
-        TextButton firstOption = new TextButton(currentEvent.getPositiveMessage(), skin);
-        TextButton secondOption = new TextButton(currentEvent.getNegativeMessage(), skin);
+        Random random = new Random();
+
+// Randomly decide which message goes to the first option
+        boolean isPositiveFirst = random.nextBoolean();
+
+        TextButton firstOption = isPositiveFirst
+                ? new TextButton(currentEvent.getPositiveMessage(), skin)
+                : new TextButton(currentEvent.getNegativeMessage(), skin);
+
+        TextButton secondOption = isPositiveFirst
+                ? new TextButton(currentEvent.getNegativeMessage(), skin)
+                : new TextButton(currentEvent.getPositiveMessage(), skin);
         table.add(firstOption).align(Align.left);
         table.add(secondOption).align(Align.right);
 

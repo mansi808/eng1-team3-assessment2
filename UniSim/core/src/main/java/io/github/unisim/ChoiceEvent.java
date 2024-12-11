@@ -5,11 +5,15 @@ import java.awt.*;
 public class ChoiceEvent extends Event {
     private String positiveMessage;
     private String negativeMessage;
+    private int positiveImpact;
+    private int negativeImpact;
 
-    public ChoiceEvent(String prompt, ScoreManager scoreManager, String positiveMessage, String negativeMessage) {
+    public ChoiceEvent(String prompt, ScoreManager scoreManager, String positiveMessage, int positiveImpact, String negativeMessage, int negativeImpact) {
         super(prompt, scoreManager);
         this.positiveMessage = positiveMessage;
         this.negativeMessage = negativeMessage;
+        this.positiveImpact = positiveImpact;
+        this.negativeImpact = negativeImpact;
     }
 
 
@@ -18,10 +22,10 @@ public class ChoiceEvent extends Event {
     @Override
     public void getImpact(String buttonMessage) {
         if (buttonMessage.equals(positiveMessage)){
-            scoreManager.updateScore(10);
+            scoreManager.updateScore(positiveImpact);
             return;
         } else if (buttonMessage.equals(negativeMessage)) {
-            scoreManager.updateScore(-10);
+            scoreManager.updateScore(negativeImpact);
             return;
 
         }
