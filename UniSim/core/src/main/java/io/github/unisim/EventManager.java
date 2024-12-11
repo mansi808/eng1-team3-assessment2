@@ -11,7 +11,7 @@ public class EventManager {
     private EventMenu eventMenu;
     private Timer timer;
     private float timeElapsed;
-    private float interval = 90f;
+    private float interval = 2f;
     private Stage stage;
     private ScoreManager scoreManager;
 
@@ -27,7 +27,7 @@ public class EventManager {
         events.add(new SingleEvent("The university ranks in the top 10 nationally this year!", scoreManager, 15));
         events.add(new SingleEvent("An academic scandal damages the university's reputation.", scoreManager, -25));
         events.add(new ChoiceEvent(
-                "A viral social media post accuses the university of unfair grading policies. Respond or ignore?",
+                "A viral social media post accuses the university of unfair grading policies.",
                 scoreManager,
                 "Respond (address concerns but draw attention to the issue)", 5,
                 "Ignore (avoid publicity but risk eroding trust)", -10
@@ -41,14 +41,14 @@ public class EventManager {
         ));
 
         events.add(new ChoiceEvent(
-                "A student-led protest disrupts classes. Support or condemn the protest?",
+                "A student-led protest disrupts classes.",
                 scoreManager,
                 "Support (uphold free speech but alienate some stakeholders)", 10,
                 "Condemn (appease critics but anger students)", -10
         ));
 
         events.add(new ChoiceEvent(
-                "An overseas university invites collaboration on a cultural exchange program. Join or decline?",
+                "An overseas university invites collaboration on a cultural exchange program.",
                 scoreManager,
                 "Join (enhance diversity but incur costs)", 15,
                 "Decline (save money but miss a global opportunity)", -5
