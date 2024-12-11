@@ -79,4 +79,6 @@ public class ScoreManagerTests extends AbstractHeadlessGdxTest {
     assertEquals(TestScoreManager.getScore(), 99);
   }
 
+  
+
 }
