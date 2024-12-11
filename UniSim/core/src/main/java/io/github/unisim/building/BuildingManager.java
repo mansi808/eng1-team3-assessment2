@@ -21,10 +21,9 @@ public class BuildingManager {
   // the locations of the corners of the buildings.
   private ArrayList<Building> buildings = new ArrayList<>();
   private Map<BuildingType, Integer> buildingCounts = new HashMap<>() {{
-    put(BuildingType.LEARNING, 0);
-    put(BuildingType.EATING, 0);
-    put(BuildingType.RECREATION, 0);
-    put(BuildingType.SLEEPING, 0);
+    for (BuildingType buildingType : BuildingType.values()) {
+    put(buildingType, 0);
+    }
 }};
 
   private Matrix4 isoTransform;
