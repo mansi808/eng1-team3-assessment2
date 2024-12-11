@@ -21,7 +21,6 @@ import io.github.unisim.ScoreManager;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
-import io.github.unisim.building.data.types.BuildingTuple;
 
 import java.util.ArrayList;
 
@@ -346,7 +345,7 @@ public class World {
       )
     );
     buildings = buildingManager.getBuildings();
-    scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingsCount());
+    scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingCounts());
     selectedBuilding = null;
     return true;
   }

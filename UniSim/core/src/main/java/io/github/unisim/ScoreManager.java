@@ -4,10 +4,10 @@ import com.badlogic.gdx.Game;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
-import io.github.unisim.building.data.types.BuildingTuple;
 import io.github.unisim.world.World;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ScoreManager {
     public static int score;
@@ -24,45 +24,17 @@ public class ScoreManager {
      * building is
      *
      */
-    public void updateScore(Building placed, ArrayList<Building> buildings, ArrayList<BuildingTuple> buildingTuples) {
+    public void updateScore(Building placed, ArrayList<Building> buildings, Map<BuildingType,Integer> buildingCounts) {
         BuildingType type = placed.type;
 
         // 1. Initialize counters
 
-        int recreationalCount = 0;
-        int learningCount = 0;
-        int sleepingCount = 0;
-        int eatingCount = 0;
+        int recreationalCount = buildingCounts.get(BuildingType.RECREATION);
+        int learningCount = buildingCounts.get(BuildingType.LEARNING);
+        int sleepingCount = buildingCounts.get(BuildingType.SLEEPING);
+        int eatingCount = buildingCounts.get(BuildingType.EATING);
 
-        int placedCount = 0;
-
-
-        // 2. Get total number of each category of buildings
-
-        for (BuildingTuple eachTuple : buildingTuples) {
-
-            // Get counts from the array
-            if (eachTuple.type == type) placedCount = eachTuple.count;
-
-            switch (eachTuple.type) {
-
-                case RECREATION:
-                    recreationalCount = eachTuple.count;
-
-                case LEARNING:
-                    learningCount = eachTuple.count;
-
-                case SLEEPING:
-                    sleepingCount = eachTuple.count;
-
-                case EATING:
-                    eatingCount = eachTuple.count;
-
-                default:
-                    break;
-            }
-
-        };
+        int placedCount = buildingCounts.get(type);
 
         // 3. Find the smallest and largest count among the 4 categories
         int minCount = Math.min(Math.min(recreationalCount, eatingCount), Math.min(sleepingCount, learningCount));

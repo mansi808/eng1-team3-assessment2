@@ -1,6 +1,11 @@
 package io.github.unisim.headless;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,11 +15,6 @@ import io.github.unisim.Point;
 import io.github.unisim.ScoreManager;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingType;
-import io.github.unisim.building.data.types.BuildingTuple;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.ArrayList;
 
 public class ScoreManagerTests extends AbstractHeadlessGdxTest {
   
@@ -29,7 +29,12 @@ public class ScoreManagerTests extends AbstractHeadlessGdxTest {
     ArrayList<Building> buildings = new ArrayList<Building>();
     
     // Create an array of building counts
-    ArrayList<BuildingTuple> buildingCounts = new ArrayList<BuildingTuple>();
+    Map<BuildingType, Integer> buildingCounts = new HashMap<BuildingType, Integer>() {{
+      put(BuildingType.LEARNING, 0);
+      put(BuildingType.EATING, 0);
+      put(BuildingType.RECREATION, 0);
+      put(BuildingType.SLEEPING, 0);
+  }};
 
     // Create a Building to test with
     Building TestBuilding = new Building(
@@ -51,7 +56,7 @@ public class ScoreManagerTests extends AbstractHeadlessGdxTest {
 
     // Update score based on the new building when there is already this type of building
 
-    buildingCounts.add(new BuildingTuple(1, BuildingType.LEARNING));
+    buildingCounts.put(BuildingType.LEARNING, 1);
 
     TestScoreManager.updateScore(TestBuilding, buildings, buildingCounts);
 
@@ -79,6 +84,6 @@ public class ScoreManagerTests extends AbstractHeadlessGdxTest {
     assertEquals(TestScoreManager.getScore(), 99);
   }
 
-  
+
 
 }
