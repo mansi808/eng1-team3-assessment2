@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
-import io.github.unisim.building.data.types.BuildingTuple;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,12 @@ public class BuildingManager {
   // create a list of buildings which will be sorted by a height metric derived from
   // the locations of the corners of the buildings.
   private ArrayList<Building> buildings = new ArrayList<>();
-  private Map<BuildingType, Integer> buildingCounts = new HashMap<>();
+  private Map<BuildingType, Integer> buildingCounts = new HashMap<>() {{
+    for (BuildingType buildingType : BuildingType.values()) {
+    put(buildingType, 0);
+    }
+}};
+
   private Matrix4 isoTransform;
   private Building previewBuilding;
 
@@ -160,10 +164,7 @@ public class BuildingManager {
       if (building == previewBuilding) {
       return;
     }
-    if (!buildingCounts.containsKey(building.type)) {
-      buildingCounts.put(building.type, 1);
-      return;
-    }
+
     buildingCounts.put(building.type, buildingCounts.get(building.type) + 1);
   }
 
@@ -229,14 +230,8 @@ public class BuildingManager {
     return buildings;
   }
 
-  public ArrayList<BuildingTuple> getBuildingsCount() {
-    ArrayList<BuildingTuple> res = new ArrayList<BuildingTuple>();
-  
-    for (BuildingType buildingType : BuildingType.values()) {
-      res.add(new BuildingTuple(getBuildingCount(buildingType), buildingType));
-    }
-
-    return res;
+  public Map<BuildingType,Integer> getBuildingCounts() {
+   return buildingCounts;
   }
 }
 

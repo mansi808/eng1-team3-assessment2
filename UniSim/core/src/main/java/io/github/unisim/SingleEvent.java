@@ -1,8 +1,8 @@
 package io.github.unisim;
 
-public class singleEvent extends Event{
+public class SingleEvent extends Event{
     private final int updateScore;
-    public singleEvent(String prompt, ScoreManager scoreManager, int updateScore) {
+    public SingleEvent(String prompt, ScoreManager scoreManager, int updateScore) {
         super(prompt, scoreManager);
         this.updateScore = updateScore;
     }

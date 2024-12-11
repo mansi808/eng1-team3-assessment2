@@ -60,7 +60,7 @@ public class EventMenu {
     }
 
     public void update() {
-        if (currentEvent.getClass().equals(singleEvent.class)) {
+        if (currentEvent.getClass().equals(SingleEvent.class)) {
             createSinglePopUp(currentEvent);
 
         } else if (currentEvent.getClass().equals(ChoiceEvent.class)) {

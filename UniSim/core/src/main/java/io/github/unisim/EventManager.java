@@ -22,7 +22,7 @@ public class EventManager {
 
 
         // Add different types of events
-        events.add(new singleEvent("Good thing happens", scoreManager, 10));
+        events.add(new SingleEvent("Good thing happens", scoreManager, 10));
         events.add( new ChoiceEvent("Good or Bad?", scoreManager, "Good", "Bad"));
     }
 
