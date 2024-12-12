@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="LeaderBoard Implemented">
+    <list default="true" id="7283b11a-1fc6-4657-90a1-d6a89a5b9bee" name="Changes" comment="Made the accomodation building bigger and the bakery building smaller. Changed popUp window color to something prettier.&#10;Worked on the (out of container) overflown text in eventsMenu and achievementMenu.&#10;Achievement Menu now disappears when button is clicked.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/BuildingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/BuildingMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/CooldownTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/CooldownTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,13 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/UniSim/core">
+          <activation />
+        </task>
         <task path="$PROJECT_DIR$/UniSim/lwjgl3">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/UniSim">
           <activation />
         </task>
         <projects_view>
@@ -37,20 +42,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="UniSim" type="f1a62948:ProjectNode" />
-                <item name="lwjgl3" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="UniSim" type="f1a62948:ProjectNode" />
-                <item name="lwjgl3" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="UniSim" type="f1a62948:ProjectNode" />
-                <item name="lwjgl3" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -69,68 +61,70 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="EventManager" />
+        <entry key="$PROJECT_DIR$" value="achievements" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;James-McDermott-hub&quot;
+    &quot;assignee&quot;: &quot;mansi808&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/mansi808/eng1-team3-assessment2.git&quot;,
-    &quot;accountId&quot;: &quot;53fba259-1158-4ce5-90a2-22f8b0c3a1a6&quot;
+    &quot;accountId&quot;: &quot;427642e1-4ad8-4976-b813-ab15ead658a5&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2phxvhAzSeFaz1OYTTsAFBpLftc" />
+  <component name="ProjectId" id="2pU3yQcS5wcHdf1vSJtEXvyZNPy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.UniSim:lwjgl3 [run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "external.system.has.shared.sources": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets/ui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UniSim [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UniSim:core [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UniSim:lwjgl3 [build].executor&quot;: &quot;Run&quot;,
+    &quot;JavaMethodFindUsagesOptions.isImplementingMethods&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;external.system.has.shared.sources&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mansideshkar/Desktop/eng1-team3-assessment2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets\ui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim" />
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src\main\java\io\github\unisim\ui" />
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src" />
+      <recent name="$PROJECT_DIR$/UniSim/assets/ui" />
+      <recent name="$PROJECT_DIR$/UniSim/assets/buildings" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="UniSim:lwjgl3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.UniSim [run]">
+    <configuration name="UniSim [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim/lwjgl3" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -149,13 +143,35 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="UniSim:lwjgl3 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim/lwjgl3" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
+        <item itemvalue="Gradle.UniSim [run]" />
+        <item itemvalue="Gradle.UniSim:lwjgl3 [build]" />
+        <item itemvalue="Gradle.UniSim:lwjgl3 [build]" />
+        <item itemvalue="Gradle.UniSim [run]" />
+        <item itemvalue="Gradle.UniSim [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -170,69 +186,80 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="" />
-      <created>1733232340628</created>
+      <changelist id="7283b11a-1fc6-4657-90a1-d6a89a5b9bee" name="Changes" comment="" />
+      <created>1732807081178</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733232340628</updated>
-      <workItem from="1733232341736" duration="25093000" />
-      <workItem from="1733752374666" duration="15075000" />
+      <updated>1732807081178</updated>
+      <workItem from="1732807082213" duration="2455000" />
+      <workItem from="1732813621692" duration="5353000" />
+      <workItem from="1732833559883" duration="47000" />
+      <workItem from="1732834023227" duration="1739000" />
+      <workItem from="1732836264580" duration="32100000" />
+      <workItem from="1733147053854" duration="13910000" />
+      <workItem from="1733664154972" duration="1303000" />
+      <workItem from="1733672970252" duration="12920000" />
+      <workItem from="1733753032551" duration="19796000" />
+      <workItem from="1733854584640" duration="34709000" />
+      <workItem from="1734011267519" duration="234000" />
+      <workItem from="1734011505303" duration="722000" />
+      <workItem from="1734014931145" duration="3516000" />
     </task>
-    <task id="LOCAL-00001" summary="Score Imbalance Calculator Implemented">
+    <task id="LOCAL-00001" summary="Added a second recreational building (bakery).">
       <option name="closed" value="true" />
-      <created>1733236424139</created>
+      <created>1732833495018</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1733236424139</updated>
+      <updated>1732833495018</updated>
     </task>
-    <task id="LOCAL-00002" summary="Implemented Closest building method. Need to figure out how this will effect score.">
+    <task id="LOCAL-00002" summary="Added png of last building to assets.">
       <option name="closed" value="true" />
-      <created>1733410152924</created>
+      <created>1733060805784</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1733410152924</updated>
+      <updated>1733060805785</updated>
     </task>
-    <task id="LOCAL-00003" summary="Implementing event manager">
+    <task id="LOCAL-00003" summary="Created classes for events and made a pop up screen for the events menu.">
       <option name="closed" value="true" />
-      <created>1733483856901</created>
+      <created>1733418460438</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1733483856901</updated>
+      <updated>1733418460440</updated>
     </task>
-    <task id="LOCAL-00004" summary="Events">
+    <task id="LOCAL-00004" summary="Made an achievements menu that appears at the end of the game.">
       <option name="closed" value="true" />
-      <created>1733657326307</created>
+      <created>1733791439172</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1733657326307</updated>
+      <updated>1733791439175</updated>
     </task>
-    <task id="LOCAL-00005" summary="Events show up 3 times in 5 minutes">
+    <task id="LOCAL-00005" summary="Changed background color of achievement menu and the impact achievements have t the score.">
       <option name="closed" value="true" />
-      <created>1733659002230</created>
+      <created>1733963498406</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1733659002230</updated>
+      <updated>1733963498406</updated>
     </task>
-    <task id="LOCAL-00006" summary="LeaderBoard Implemented">
+    <task id="LOCAL-00006" summary="Wrapped single choice events to fit into the popUp window and deleted redundant code.">
       <option name="closed" value="true" />
-      <created>1733857062260</created>
+      <created>1733964173562</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1733857062260</updated>
+      <updated>1733964173562</updated>
     </task>
-    <task id="LOCAL-00007" summary="LeaderBoard Implemented">
+    <task id="LOCAL-00007" summary="Made the accomodation building bigger and the bakery building smaller. Changed popUp window color to something prettier.&#10;Worked on the (out of container) overflown text in eventsMenu and achievementMenu.&#10;Achievement Menu now disappears when button is clicked.">
       <option name="closed" value="true" />
-      <created>1734004580160</created>
+      <created>1733984370624</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1734004580160</updated>
+      <updated>1733984370625</updated>
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
@@ -245,19 +272,32 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Score Imbalance Calculator Implemented" />
-    <MESSAGE value="Implemented Closest building method. Need to figure out how this will effect score." />
-    <MESSAGE value="Implementing event manager" />
-    <MESSAGE value="Events" />
-    <MESSAGE value="Events show up 3 times in 5 minutes" />
-    <MESSAGE value="LeaderBoard Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="LeaderBoard Implemented" />
+    <MESSAGE value="Added a second recreational building (bakery)." />
+    <MESSAGE value="Added png of last building to assets." />
+    <MESSAGE value="Created classes for events and made a pop up screen for the events menu." />
+    <MESSAGE value="Made an achievements menu that appears at the end of the game." />
+    <MESSAGE value="Changed background color of achievement menu and the impact achievements have t the score." />
+    <MESSAGE value="Wrapped single choice events to fit into the popUp window and deleted redundant code." />
+    <MESSAGE value="Made the accomodation building bigger and the bakery building smaller. Changed popUp window color to something prettier.&#10;Worked on the (out of container) overflown text in eventsMenu and achievementMenu.&#10;Achievement Menu now disappears when button is clicked." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the accomodation building bigger and the bakery building smaller. Changed popUp window color to something prettier.&#10;Worked on the (out of container) overflown text in eventsMenu and achievementMenu.&#10;Achievement Menu now disappears when button is clicked." />
   </component>
 </project>

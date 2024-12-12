@@ -22,13 +22,13 @@ public class CooldownTimer {
 
     public void startCooldown(Building selectedBuilding) {
         if (selectedBuilding.type == BuildingType.RECREATION){
-            cooldownDuration = 5;
+            cooldownDuration = 3;
         } else if (selectedBuilding.type == BuildingType.LEARNING){
-            cooldownDuration = 10;
+            cooldownDuration = 6;
         }else if (selectedBuilding.type == BuildingType.SLEEPING){
-            cooldownDuration = 10;
+            cooldownDuration = 6;
         }else if (selectedBuilding.type == BuildingType.EATING){
-            cooldownDuration = 5;
+            cooldownDuration = 3;
         }
         elapsedTime = 0;
     }
