@@ -128,6 +128,7 @@ public class GameScreen implements Screen {
       infoBar.reset();
       buildingMenu.reset();
       achievementMenu.reset();
+
     }
   }
 

@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import io.github.unisim.CooldownTimer;
 import io.github.unisim.GameState;
 
 /**
@@ -40,6 +41,7 @@ public class GameOverMenu {
       public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
         // Switch to the game screen
         GameState.currentScreen = GameState.startScreen;
+
       }
     });
 
