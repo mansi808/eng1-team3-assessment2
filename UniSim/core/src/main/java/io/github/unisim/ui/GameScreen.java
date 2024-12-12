@@ -48,10 +48,12 @@ public class GameScreen implements Screen {
     eventMenu = new EventMenu(stage);
     world = new World(scoreManager, achievementMenu);
 //    timer = new Timer(300_000);
-    timer = new Timer(6_000);
+    timer = new Timer(3000);
       infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventManager = new EventManager(timer, eventMenu, world.scoreManager);
+      achievementMenu = new AchievementMenu(stage);
+      achievementManager = new AchievementManager(scoreManager, world.getBuildingManager(),achievementMenu);
 
       uiInputProcessor = new UiInputProcessor(stage);
     worldInputProcessor = new WorldInputProcessor(world);
@@ -83,8 +85,6 @@ public class GameScreen implements Screen {
       eventManager.showEvent();
 
       if (!timer.isRunning()) {
-          achievementMenu = new AchievementMenu(stage);
-          achievementManager = new AchievementManager(scoreManager, world.getBuildingManager(),achievementMenu);
           achievementManager.calculateAchievements();
           achievementManager.showAchievement();
           GameState.gameOver = true;
@@ -110,6 +110,7 @@ public class GameScreen implements Screen {
       buildingMenu.resize(width, height);
       gameOverMenu.resize(width, height);
       eventMenu.resize(width,height);
+      achievementMenu.resize(width,height);
   }
 
   @Override
@@ -127,6 +128,7 @@ public class GameScreen implements Screen {
       world.reset();
       infoBar.reset();
       buildingMenu.reset();
+      achievementMenu.reset();
     }
   }
 

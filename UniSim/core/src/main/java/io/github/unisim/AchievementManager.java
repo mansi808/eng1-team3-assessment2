@@ -57,14 +57,15 @@ public class AchievementManager {
     public void showAchievement() {
         if (!GameState.paused) {
             GameState.paused = true;
+            achievementMenu.setAchievements(achievements);
             achievementMenu.update();
         }
     }
 
     public void calculateAchievements() {
         if (areEqualBuildingType()) achievements.add(new Achievement("Equaliser","You're the architect of balance, making sure every type of building get" +
-            "s its fair share of the spotlight!"));
-        if (haveZeroScore()) achievements.add(new Achievement("Minimalist", "Zero? Well, looks like there is still a lot of space for improvement "));
+            "s its fair share of the spotlight!", scoreManager, false));
+        if (haveZeroScore()) achievements.add(new Achievement("Minimalist", "Zero? Well, looks like there is still a lot of space for improvement ",scoreManager, false));
         achievementMenu.setAchievements(achievements);
     }
 
