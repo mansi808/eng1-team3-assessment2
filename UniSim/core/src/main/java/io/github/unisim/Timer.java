@@ -27,8 +27,12 @@ public class Timer {
    * @return - true if the timer is running and the time has been decremented, false otherwise.
    */
   public void tick(float deltaTime) {
-    remainingTime -= deltaTime;
+
+    if(!isRunning()) return;
+
+    remainingTime = Math.max(0, remainingTime - deltaTime);
     
+
     hasFinished = remainingTime <= 0;
   }
 

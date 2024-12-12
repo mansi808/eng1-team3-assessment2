@@ -59,7 +59,6 @@ public class World {
   public ScoreManager scoreManager;
   private ArrayList<Building> buildings;
 
-
     /**
    * Create a new World.
    */
@@ -346,7 +345,7 @@ public class World {
       )
     );
     buildings = buildingManager.getBuildings();
-    scoreManager.UpdateScore(selectedBuilding, buildings, this);
+    scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingCounts());
     selectedBuilding = null;
     return true;
   }
@@ -361,6 +360,8 @@ public class World {
   public int getBuildingCount(BuildingType type) {
     return buildingManager.getBuildingCount(type);
   }
+
+
 
   /**
    * Set the camera position to the starting point, rebuild the isometry matrices
@@ -377,6 +378,8 @@ public class World {
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
   }
+
+
   public BuildingManager getBuildingManager() {
       return buildingManager;
   }

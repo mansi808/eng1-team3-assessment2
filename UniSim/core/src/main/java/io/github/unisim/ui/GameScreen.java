@@ -6,12 +6,10 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
 import io.github.unisim.*;
 import io.github.unisim.GameState;
 import io.github.unisim.ScoreManager;
 import io.github.unisim.Timer;
-
 import io.github.unisim.world.UiInputProcessor;
 import io.github.unisim.world.World;
 import io.github.unisim.world.WorldInputProcessor;
@@ -34,6 +32,9 @@ public class GameScreen implements Screen {
   private GameOverMenu gameOverMenu = new GameOverMenu();
   private EventManager eventManager;
   private ScoreManager scoreManager;
+  private Leaderboard leaderboard;
+  private AchievementManager achievementManager;
+  private AchievementMenu achievementMenu;
 
 
   /**
@@ -41,17 +42,22 @@ public class GameScreen implements Screen {
    */
   public GameScreen() {
     scoreManager = new ScoreManager();
-    world = new World(scoreManager);
-    timer = new Timer(300_000);
-    infoBar = new InfoBar(stage, timer, world, scoreManager);
-    buildingMenu = new BuildingMenu(stage, world);
-    eventMenu = new EventMenu(stage, world.scoreManager);
-    eventManager = new EventManager(timer, eventMenu, world.scoreManager);
 
-    uiInputProcessor = new UiInputProcessor(stage);
+    eventMenu = new EventMenu(stage);
+    world = new World(scoreManager);
+//    timer = new Timer(300_000);
+    timer = new Timer(300000);
+      infoBar = new InfoBar(stage, timer, world, scoreManager);
+    buildingMenu = new BuildingMenu(stage, world);
+    eventManager = new EventManager(timer, eventMenu, world.scoreManager);
+      achievementMenu = new AchievementMenu(stage);
+      achievementManager = new AchievementManager(scoreManager, world.getBuildingManager(),achievementMenu);
+
+      uiInputProcessor = new UiInputProcessor(stage);
     worldInputProcessor = new WorldInputProcessor(world);
     inputMultiplexer = new InputMultiplexer();
     gameOverMenu = new GameOverMenu();
+    leaderboard = new Leaderboard(gameOverMenu.stage, scoreManager);
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
     inputMultiplexer.addProcessor(uiInputProcessor);
@@ -78,8 +84,12 @@ public class GameScreen implements Screen {
       eventManager.showEvent();
 
       if (!timer.isRunning()) {
-        GameState.gameOver = true;
-        Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
+          achievementManager.calculateAchievements();
+          achievementManager.showAchievement();
+
+         if (GameState.gameOver) {
+          Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
+         }
       }
     }
     stage.act(dt);
@@ -101,6 +111,8 @@ public class GameScreen implements Screen {
     buildingMenu.resize(width, height);
     gameOverMenu.resize(width, height);
     eventMenu.resize(width,height);
+    leaderboard.resize(width,height);
+    achievementMenu.resize(width,height);
   }
 
   @Override
@@ -118,6 +130,7 @@ public class GameScreen implements Screen {
       world.reset();
       infoBar.reset();
       buildingMenu.reset();
+      achievementMenu.reset();
     }
   }
 
