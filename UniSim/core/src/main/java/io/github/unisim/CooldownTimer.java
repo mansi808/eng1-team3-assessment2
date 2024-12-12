@@ -25,16 +25,16 @@ public class CooldownTimer {
         switch(selectedBuildingType) {
 
             case RECREATION:
-                cooldownDuration = 5;
+                cooldownDuration = 3;
 
             case LEARNING:
-                cooldownDuration = 10;
+                cooldownDuration = 6;
 
             case SLEEPING:
-                cooldownDuration = 10;
+                cooldownDuration = 6;
 
             case EATING:
-                cooldownDuration = 5;
+                cooldownDuration = 3;
         }
 
         elapsedTime = 0;
