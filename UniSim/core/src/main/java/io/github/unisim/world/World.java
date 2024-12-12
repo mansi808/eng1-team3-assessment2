@@ -15,6 +15,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import io.github.unisim.CooldownTimer;
 import io.github.unisim.GameState;
 import io.github.unisim.Point;
 import io.github.unisim.ScoreManager;
@@ -59,6 +60,8 @@ public class World {
   public ScoreManager scoreManager;
   private ArrayList<Building> buildings;
 
+  public CooldownTimer placementTimer;
+
     /**
    * Create a new World.
    */
@@ -68,6 +71,7 @@ public class World {
     buildingManager = new BuildingManager(isoTransform);
     selectedBuilding = null;
     scoreManager = gameScoreManager;
+    placementTimer = new CooldownTimer(10);
   }
 
   /**
@@ -88,6 +92,7 @@ public class World {
 
     updatePan();
     updateZoom();
+    placementTimer.update(Gdx.graphics.getDeltaTime());
 
     // Render the map tiles
     // Render the map 0.0624 units lower than the rest of the world to account for
@@ -334,7 +339,7 @@ public class World {
    * @return - True if building could be done successfully, false otherwise.
    */
   public boolean placeBuilding() {
-    if (!canBuild || GameState.paused) {
+    if (!canBuild || GameState.paused || !placementTimer.isCooldownComplete()) {
       return false;
     }
     buildingManager.placeBuilding(
@@ -346,6 +351,7 @@ public class World {
     );
     buildings = buildingManager.getBuildings();
     scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingCounts());
+    placementTimer.startCooldown(selectedBuilding);
     selectedBuilding = null;
     return true;
   }

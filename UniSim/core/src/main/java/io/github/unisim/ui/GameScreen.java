@@ -86,10 +86,6 @@ public class GameScreen implements Screen {
       if (!timer.isRunning()) {
           achievementManager.calculateAchievements();
           achievementManager.showAchievement();
-
-         if (GameState.gameOver) {
-          Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
-         }
       }
     }
     stage.act(dt);
@@ -99,6 +95,7 @@ public class GameScreen implements Screen {
     if (GameState.gameOver) {
       world.zoom((world.getMaxZoom() - world.getZoom()) * 2f);
       world.pan((150 - world.getCameraPos().x) / 10, -world.getCameraPos().y / 10);
+      Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
       gameOverMenu.render(delta);
     }
   }

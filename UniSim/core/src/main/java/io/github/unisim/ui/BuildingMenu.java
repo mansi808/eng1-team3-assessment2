@@ -109,7 +109,11 @@ public class BuildingMenu {
             world.selectedBuilding = null;
           } else {
             world.selectedBuilding = buildings.get(buildingIndex);
-            buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n Cannot build when paused \n");
+            if (GameState.paused) {
+                buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n Cannot build when paused \n");
+            } else {
+                buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n");
+            }
             if (world.selectedBuilding.flipped) {
               world.selectedBuilding.flipped = false;
               int temp = world.selectedBuilding.size.x;
@@ -161,6 +165,9 @@ public class BuildingMenu {
    * Called when the building menu needs to be redrawn with new values in the labels.
    */
   public void update() {
+      if (!world.placementTimer.isCooldownComplete() && world.selectedBuilding != null){
+          buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n  Building  Cooldown: "+world.placementTimer.getCooldownDuration()+"\n");
+      }
     if (GameState.gameOver) {
       buildingInfoLabel.setText("Game Over!");
     } else if (world.selectedBuilding == null) {
