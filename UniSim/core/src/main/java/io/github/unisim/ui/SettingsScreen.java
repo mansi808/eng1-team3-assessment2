@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import io.github.unisim.GameState;
+import io.github.unisim.Main;
 
 /**
  * The settings screen that allows the player to adjust the volume.
@@ -45,6 +46,7 @@ public class SettingsScreen implements Screen {
     volumeSlider.addListener(event -> {
       // Adjust the game volume based on slider value
       GameState.settings.setVolume(volumeSlider.getValue());
+      Main.updateMusicSettings();
       return false;
     });
 

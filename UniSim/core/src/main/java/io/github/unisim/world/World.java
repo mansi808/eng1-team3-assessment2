@@ -15,10 +15,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import io.github.unisim.CooldownTimer;
-import io.github.unisim.GameState;
-import io.github.unisim.Point;
-import io.github.unisim.ScoreManager;
+import io.github.unisim.*;
 import io.github.unisim.building.Building;
 import io.github.unisim.building.BuildingManager;
 import io.github.unisim.building.BuildingType;
@@ -351,7 +348,8 @@ public class World {
     );
     buildings = buildingManager.getBuildings();
     scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingCounts());
-    placementTimer.startCooldown(selectedBuilding);
+    placementTimer.startCooldown(selectedBuilding.type);
+    Main.buildingSoundEffect.play();
     selectedBuilding = null;
     return true;
   }
