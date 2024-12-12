@@ -26,12 +26,15 @@ public class CooldownTimer {
 
             case RECREATION:
                 cooldownDuration = 3;
+                break;
 
             case LEARNING:
                 cooldownDuration = 6;
+                break;
 
             case SLEEPING:
                 cooldownDuration = 6;
+                break;
 
             case EATING:
                 cooldownDuration = 3;
