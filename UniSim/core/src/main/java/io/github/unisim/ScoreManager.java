@@ -34,16 +34,11 @@ public class ScoreManager {
         int sleepingCount = buildingCounts.get(BuildingType.SLEEPING);
         int eatingCount = buildingCounts.get(BuildingType.EATING);
 
-        // TODO 3. For now just returns baseScore of 10
-        int baseScore = calculateBaseScore(placed, buildings);
         int placedCount = buildingCounts.get(type);
 
         // 3. Find the smallest and largest count among the 4 categories
         int minCount = Math.min(Math.min(recreationalCount, eatingCount), Math.min(sleepingCount, learningCount));
         int maxCount = Math.max(Math.max(recreationalCount, eatingCount), Math.max(sleepingCount, learningCount));
-
-        // 4. Handle cases when there are too few or too many buildings of the same type
-        int placedBuildingTypeCount = world.getBuildingCount(type);
 
         // TODO 4. For now just returns baseScore of 10
         int baseScoreChange = calculateBaseScore(placed, buildings);
@@ -60,6 +55,7 @@ public class ScoreManager {
 
         setScore(score + totalScoreChange);
     }
+
 
     public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
         Building closest = null;
