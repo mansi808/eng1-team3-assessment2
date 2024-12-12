@@ -33,7 +33,7 @@ public class Leaderboard {
     private Array<String> playerScores = new Array<>();
     private Array<Label> playerLabels = new Array<>();
     private TextField textField;
-    private int EndGameScore = 100;
+    private int EndGameScore;
     private String name;
     private TextButton submitButton;
 
@@ -41,6 +41,7 @@ public class Leaderboard {
     public Leaderboard(Stage stage, ScoreManager scoreManager) {
         this.stage = stage;
         this.table = null;
+        EndGameScore = scoreManager.getScore();
         readFile();
         createBoard();
 

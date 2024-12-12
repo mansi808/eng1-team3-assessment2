@@ -38,7 +38,7 @@ public class ScoreManager {
         int minCount = Math.min(Math.min(recreational, eating), Math.min(sleeping, learning));
         int maxCount = Math.max(Math.max(recreational, eating), Math.max(sleeping, learning));
 
-        // TODO 3. For now just returns baseScore of 10 
+        // TODO 3. For now just returns baseScore of 10
         int baseScore = calculateBaseScore(placed, buildings);
 
         // 4. The bigger imbalance grows, the smaller will score increase
@@ -46,7 +46,7 @@ public class ScoreManager {
         int scoreIncrease = imbalance * 2;
 
         // 4. Handle cases when there are too few or too many buildings of the same type
-        int placedBuildingTypeCount = world.getBuildingCount(type); 
+        int placedBuildingTypeCount = world.getBuildingCount(type);
 
         if(placedBuildingTypeCount == minCount) {
             score += baseScore + scoreIncrease;
@@ -121,7 +121,7 @@ public class ScoreManager {
      * @return
      */
     public int getScore() {
-        return 0;
+        return score;
     }
 
 

@@ -1,5 +1,5 @@
-Emma Johnson,92
-Liam Williams,84
-Sophia Davis,78
-James Brown,65
-Olivia Martinez,56
+Emma,92
+Liam,84
+Sophia,78
+James,65
+Olivia,56

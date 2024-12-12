@@ -43,7 +43,7 @@ public class GameScreen implements Screen {
   public GameScreen() {
     scoreManager = new ScoreManager();
     world = new World(scoreManager);
-    timer = new Timer(1_000);
+    timer = new Timer(300_000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventMenu = new EventMenu(stage, world.scoreManager);
