@@ -6,13 +6,10 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-
 import io.github.unisim.*;
 import io.github.unisim.GameState;
 import io.github.unisim.ScoreManager;
 import io.github.unisim.Timer;
-
-import io.github.unisim.building.BuildingType;
 import io.github.unisim.world.UiInputProcessor;
 import io.github.unisim.world.World;
 import io.github.unisim.world.WorldInputProcessor;
@@ -46,9 +43,9 @@ public class GameScreen implements Screen {
     scoreManager = new ScoreManager();
 
     eventMenu = new EventMenu(stage);
-    world = new World(scoreManager, achievementMenu);
+    world = new World(scoreManager);
 //    timer = new Timer(300_000);
-    timer = new Timer(3000);
+    timer = new Timer(6000);
       infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventManager = new EventManager(timer, eventMenu, world.scoreManager);
@@ -87,8 +84,10 @@ public class GameScreen implements Screen {
       if (!timer.isRunning()) {
           achievementManager.calculateAchievements();
           achievementManager.showAchievement();
-          GameState.gameOver = true;
-        Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
+
+         if (GameState.gameOver) {
+          Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());
+         }
       }
     }
     stage.act(dt);

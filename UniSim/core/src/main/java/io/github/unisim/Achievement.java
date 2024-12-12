@@ -1,19 +1,18 @@
 package io.github.unisim;
 
-import io.github.unisim.building.BuildingManager;
-import io.github.unisim.building.BuildingType;
-
 public class Achievement {
 
     private String description = "";
     private String title;
-    public ScoreManager  scoreManager;
+    private ScoreManager  scoreManager;
+    private boolean isPositiveImpact;
 
-    public Achievement(String title, String description, ScoreManager scoreManager, boolean positive) {
+    public Achievement(String title, String description, ScoreManager scoreManager, boolean isPositiveImpact) {
         setDescription(description);
         this.title = title;
         this.scoreManager = scoreManager;
-        if (positive) setPositiveImpact();
+        this.isPositiveImpact = isPositiveImpact;
+        if (isPositiveImpact) setPositiveImpact();
         else setNegativeImpact();
     }
 
@@ -35,6 +34,10 @@ public class Achievement {
 
     public void setDescription(String message) {
         this.description = message;
+    }
+
+    public boolean isPositiveImpact() {
+        return isPositiveImpact;
     }
 
 

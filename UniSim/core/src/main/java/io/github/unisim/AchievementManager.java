@@ -6,6 +6,10 @@ import io.github.unisim.ui.AchievementMenu;
 
 import java.util.ArrayList;
 
+/**
+ * Manages methods for calculating and initialising achievements earned by the player
+ */
+
 public class AchievementManager {
 
     private ScoreManager scoreManager;
@@ -19,23 +23,15 @@ public class AchievementManager {
         this.achievementMenu = achievementMenu;
     }
 
-    public boolean isScoreAchievement() {
-        if (scoreManager.getScore() > 100 && scoreManager.getScore() <= 110) {
-            return true;
-        }
-//        if (buildingManager.getBuildingType) {
-//            return true;
-//        }
-         return false;
+
+    public boolean isScore500() {
+        return scoreManager.getScore() > 500;
     }
 
-//    public boolean isLessThanTen() {
-//        return buildingManager.getBuildingsCount() > 0 && buildingManager.getBuildingsCount() < 10);
-//    }
-//
-//    public boolean isMoreThanThirty() {
-//        return buildingManager.getBuildingsCount() > 30;
-//    }
+
+    public boolean areBuildingsFifty() {
+        return buildingManager.getBuildingCount() > 50;
+    }
 
     public boolean areEqualBuildingType() {
         int i = -1;
@@ -62,14 +58,21 @@ public class AchievementManager {
         }
     }
 
+    /**
+     * Updates <code>achievements</code> and initialises each achievement if the methods return true.
+     */
     public void calculateAchievements() {
         if (areEqualBuildingType()) achievements.add(new Achievement("Equaliser","You're the architect of balance, making sure every type of building get" +
             "s its fair share of the spotlight!", scoreManager, false));
         if (haveZeroScore()) achievements.add(new Achievement("Minimalist", "Zero? Well, looks like there is still a lot of space for improvement ",scoreManager, false));
+        if (areBuildingsFifty()) achievements.add(new Achievement("Maximiser","50 Sites! We might need another campus to keep up with you" , scoreManager, true));
+        if (isScore500()) achievements.add(new Achievement("Champion","500? Gosh! we might need to bring up the heat" , scoreManager, true));
         achievementMenu.setAchievements(achievements);
     }
 
     public ArrayList<Achievement> getAchievements() {
         return achievements;
     }
+
+
 }

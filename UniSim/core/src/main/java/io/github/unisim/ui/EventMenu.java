@@ -29,7 +29,8 @@ public class EventMenu {
     private TextButton continueButton = new TextButton("Continue", GameState.defaultSkin);
     private Event currentEvent;
     private Stage stage;
-
+    private TextButton firstOption;
+    private TextButton secondOption;
 
     public EventMenu(Stage stage) {
         this.stage = stage;
@@ -44,9 +45,19 @@ public class EventMenu {
      */
     public void resize(int width, int height) {
         if (table!=null) {
-            table.setBounds(width * 0.35f, height * 0.4f, width * 0.3f, height * 0.3f);
-            eventLabelCell.width(width * 0.2f).height(height * 0.2f);
+            table.setBounds(width * 0.3f, height * 0.4f, width * 0.4f, height * 0.4f);
+            eventLabelCell.width(width * 0.2f);
+            eventLabelCell.height(height * 0.2f);
             eventLabel.setFontScale(height * 0.0015f);
+
+            if (currentEvent != null) {
+                if (currentEvent.getClass().equals(SingleEvent.class)) {
+                    continueButton.pad(height*0.025f,width*0.010f,height*.025f,width*0.010f);
+                } else if (currentEvent.getClass().equals(ChoiceEvent.class)) {
+                    table.getCell(firstOption).height(height*0.1f).width(width*0.17f);
+                    table.getCell(secondOption).width(width*0.17f).height(height*0.1f);
+                }
+            }
         }
 
     }
@@ -69,11 +80,9 @@ public class EventMenu {
 
     public void createSinglePopUp(Event currentEvent){
         this.table = new Table();
-        Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
+        Texture backgroundTexture = new Texture(Gdx.files.internal("ui/popUp.png"));
 
         eventLabel = new Label("", skin);
-        eventLabel.setWrap(true);
-        eventLabel.setAlignment(Align.center);
         eventLabelCell = table.add(eventLabel).align(Align.center);
         table.setBackground(new TextureRegionDrawable(backgroundTexture));
         table.row();
@@ -98,28 +107,31 @@ public class EventMenu {
 
     public void createChoicePopUp(ChoiceEvent currentEvent){
         this.table = new Table();
-        Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
+        Texture backgroundTexture = new Texture(Gdx.files.internal("ui/popUp.png"));
 
         eventLabel = new Label("", skin);
         eventLabel.setWrap(true);
+        eventLabel.setAlignment(Align.center);
+        eventLabelCell = table.add(eventLabel);
 
-        eventLabelCell = table.add(eventLabel).align(Align.center);
         table.setBackground(new TextureRegionDrawable(backgroundTexture));
         table.row();
         Random random = new Random();
 
-// Randomly decide which message goes to the first option
+        // Randomly decide which message goes to the first option
         boolean isPositiveFirst = random.nextBoolean();
 
-        TextButton firstOption = isPositiveFirst
+        firstOption = isPositiveFirst
                 ? new TextButton(currentEvent.getPositiveMessage(), skin)
                 : new TextButton(currentEvent.getNegativeMessage(), skin);
 
-        TextButton secondOption = isPositiveFirst
+        secondOption = isPositiveFirst
                 ? new TextButton(currentEvent.getNegativeMessage(), skin)
                 : new TextButton(currentEvent.getPositiveMessage(), skin);
-        table.add(firstOption).align(Align.left);
-        table.add(secondOption).align(Align.right);
+        firstOption.getLabel().setWrap(true);
+        secondOption.getLabel().setWrap(true);
+        table.add(firstOption);
+        table.add(secondOption);
 
         stage.addActor(table);
 

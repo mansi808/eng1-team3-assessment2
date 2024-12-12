@@ -182,6 +182,13 @@ public class BuildingManager {
     return buildingCounts.get(type);
   }
 
+    public int getBuildingCount() {
+        int i = 0;
+        for (BuildingType type: BuildingType.values()) {
+            i+= (getBuildingCount(type));
+        } return i;
+    }
+
   /**
    * Sets the building to render as a 'preview' on the map prior to placement.
 

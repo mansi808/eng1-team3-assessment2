@@ -2,23 +2,23 @@ package io.github.unisim.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import io.github.unisim.*;
-
-import javax.swing.plaf.ColorUIResource;
 import java.util.ArrayList;
 
+/**
+* Achievement Menu which shows the achievements earned by the player
+* after the timer runs out.
+ **/
 public class AchievementMenu {
 
     public Table table;
     private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
-    private TextButton continueButton = new TextButton("Continue", GameState.defaultSkin);
+    private TextButton continueButton = new TextButton("Go to LeaderBoard", GameState.defaultSkin);
     private Cell<TextButton> buttonCell;
     private Label title = new Label("Achievements", GameState.defaultSkin);
     private Cell<Label> titleCell;
@@ -39,19 +39,22 @@ public class AchievementMenu {
     public void resize(int width, int height) {
         if (table!=null) {
             table.setBounds(width * 0.25f, height * 0.3f, width * 0.5f, height * 0.5f);
-            buttonCell.width(width * 0.05f).height(height * 0.05f).center();
-            titleCell.width(width * 0.05f).height(height * 0.05f).center();
-            title.setFontScale(height * 0.0025f);
+            title.setFontScale(height * 0.0020f);
+            titleCell.padBottom(height*.025f);
+            continueButton.pad(height*0.025f,width*0.010f,height*.025f,width*0.010f);
 
-//            for (int i = 1; i <= table.getChildren().size - 2; i += 2) {
-//                Label l = (Label) table.getChildren().get(1);
-//                l.setWidth(width * 500);
-//                l.setHeight(height * 1f);
-//                l.setFontScale(height*0.0015f);
-//                table.getChild(2).setWidth(width*0.7f);
-//                table.getChild(i+1).setHeight(height*0.1f);
-//            }
+            for (int i=1; i<=table.getChildren().size-2;i+=2){
+                table.getCell(table.getChild(i)).width(width * 0.5f);
+                table.getCell(table.getChild(i)).height(height * 0.025f);
+                ((Label) table.getChild(i)).setFontScale(height * 0.0015f);
+            }
+            for (int i=2; i<= table.getChildren().size-1; i+=2) {
+                table.getCell(table.getChild(i)).width(width * 0.5f);
+                table.getCell(table.getChild(i)).height(height * 0.1f);
+                ((Label) table.getChild(i)).setFontScale(height * 0.0012f);
+            }
         }
+
     }
 
     public void setAchievements(ArrayList<Achievement> achievements) {
@@ -72,16 +75,24 @@ public class AchievementMenu {
 
         titleCell = table.add(title).center();
         table.row();
-        for (Achievement achievement : achievements) {
-            Label l = new Label(achievement.getTitle(),skin);
-//            l.setWrap(true);
-            table.add(l).align(Align.center);
+        if (achievements!=null) {
+            for (Achievement achievement : achievements) {
+                String score = achievement.isPositiveImpact() ? "+5" : "-5";
+                Label title = new Label(achievement.getTitle() + " " + score, skin);
+                title.setAlignment(Align.center);
+                title.setAlignment(Align.center);
+                table.add(title).align(Align.center);
 
-            Label l2 = new Label(achievement.getDescription(),skin);
-//            l2.setWrap(true);
-            table.add(l2).align(Align.center);
+                table.row();
+                Label description = new Label(achievement.getDescription(), skin);
+                description.setWrap(true);
+                description.setAlignment(Align.center);
+                table.add(description).align(Align.center);
 
-            table.row();
+                table.row();
+            }
+        } else {
+            table.add("You have got a pristine record of almost doing something noteworthy. Better luck next time! \"");
         }
 
         table.row();
@@ -93,11 +104,10 @@ public class AchievementMenu {
         continueButton.addListener(new ClickListener() {
             @Override
             public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
-                GameState.currentScreen = GameState.gameScreen;
-//                currentAchievement.getImpact();
-                table.setVisible(false);
-                GameState.paused = false;
                 table.remove();
+                achievements.clear();
+                GameState.paused = false;
+                GameState.gameOver=true;
             }
         });
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -107,9 +117,5 @@ public class AchievementMenu {
         table.setVisible(false);
         achievements.clear();
     }
-//
-//    public void resizeTitle(Label label,int height, int width) {
-//        label.setBounds(width,height,width * 0.2f,height(height * 0.2f);
-//        label.setFontScale(height * 0.0015f);
-//    }
+
 }
