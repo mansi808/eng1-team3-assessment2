@@ -1,5 +1,6 @@
 package io.github.unisim.ui;
 
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -16,7 +17,7 @@ import io.github.unisim.GameState;
  * will be calculated in future.
  */
 public class GameOverMenu {
-  private Stage stage;
+  public Stage stage;
   private Skin skin;
   private ShapeActor bar = new ShapeActor(GameState.UISecondaryColour);
   private Table table;

@@ -32,6 +32,7 @@ public class GameScreen implements Screen {
   private GameOverMenu gameOverMenu = new GameOverMenu();
   private EventManager eventManager;
   private ScoreManager scoreManager;
+  private Leaderboard leaderboard;
   private AchievementManager achievementManager;
   private AchievementMenu achievementMenu;
 
@@ -56,6 +57,7 @@ public class GameScreen implements Screen {
     worldInputProcessor = new WorldInputProcessor(world);
     inputMultiplexer = new InputMultiplexer();
     gameOverMenu = new GameOverMenu();
+    leaderboard = new Leaderboard(gameOverMenu.stage, scoreManager);
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
     inputMultiplexer.addProcessor(stage);
     inputMultiplexer.addProcessor(uiInputProcessor);
@@ -103,13 +105,14 @@ public class GameScreen implements Screen {
 
   @Override
   public void resize(int width, int height) {
-      world.resize(width, height);
-      stage.getViewport().update(width, height, true);
-      infoBar.resize(width, height);
-      buildingMenu.resize(width, height);
-      gameOverMenu.resize(width, height);
-      eventMenu.resize(width,height);
-      achievementMenu.resize(width,height);
+    world.resize(width, height);
+    stage.getViewport().update(width, height, true);
+    infoBar.resize(width, height);
+    buildingMenu.resize(width, height);
+    gameOverMenu.resize(width, height);
+    eventMenu.resize(width,height);
+    leaderboard.resize(width,height);
+    achievementMenu.resize(width,height);
   }
 
   @Override
