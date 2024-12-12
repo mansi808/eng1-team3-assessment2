@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="LeaderBoard Implemented">
+    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Implement Cooldown timer">
+      <change afterPath="$PROJECT_DIR$/UniSim/assets/backgroundMusic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UniSim/assets/buildingSoundEffect.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/BuildingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/BuildingMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/SettingsScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/world/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/world/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +109,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets/ui",
+    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,6 +120,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -234,7 +238,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734004580160</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implement Cooldown timer">
+      <option name="closed" value="true" />
+      <created>1734014515338</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734014515338</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implement Cooldown timer">
+      <option name="closed" value="true" />
+      <created>1734015948183</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734015948183</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +278,7 @@
     <MESSAGE value="Events" />
     <MESSAGE value="Events show up 3 times in 5 minutes" />
     <MESSAGE value="LeaderBoard Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="LeaderBoard Implemented" />
+    <MESSAGE value="Implement Cooldown timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Cooldown timer" />
   </component>
 </project>

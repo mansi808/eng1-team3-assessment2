@@ -1,16 +1,19 @@
 package io.github.unisim;
 
+import com.badlogic.gdx.audio.Music;
+
 /**
  * Contains global settings for the game such as volume.
  */
 public class Settings {
-  private float volume = 1.0f;
+    private float volume = 1.0f;
 
-  public float getVolume() {
-    return volume;
-  }
+    public float getVolume() {
+        return volume;
+    }
 
-  public void setVolume(float volume) {
-    this.volume = volume;
-  }
+    public void setVolume(float volume) {
+        this.volume = volume;
+    }
+
 }
