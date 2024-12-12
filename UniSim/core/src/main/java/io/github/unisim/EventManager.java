@@ -22,9 +22,38 @@ public class EventManager {
 
 
         // Add different types of events
-        events.add(new PositiveEvent("This is a positive event.", scoreManager));
-        events.add(new NegativeEvent("This is a negative event.", scoreManager));
-        events.add(new NeutralEvent("This is a neutral event.", scoreManager));
+        events.add(new SingleEvent("A philanthropist donates £1 million for scholarships!", scoreManager, 20));
+        events.add(new SingleEvent("A water pipe bursts, flooding a lecture hall.", scoreManager, -15));
+        events.add(new SingleEvent("The university ranks in the top 10 nationally this year!", scoreManager, 15));
+        events.add(new SingleEvent("An academic scandal damages the university's reputation.", scoreManager, -25));
+        events.add(new ChoiceEvent(
+                "A viral social media post accuses the university of unfair grading policies.",
+                scoreManager,
+                "Respond (address concerns but draw attention to the issue)", 5,
+                "Ignore (avoid publicity but risk eroding trust)", -10
+        ));
+
+        events.add(new ChoiceEvent(
+                "An alumnus offers to endow a scholarship program. Accept or set conditions?",
+                scoreManager,
+                "Accept (gain funds but cede control over criteria)", 20,
+                "Set conditions (retain control but risk losing the donation)", 10
+        ));
+
+        events.add(new ChoiceEvent(
+                "A student-led protest disrupts classes.",
+                scoreManager,
+                "Support (uphold free speech but alienate some stakeholders)", 10,
+                "Condemn (appease critics but anger students)", -10
+        ));
+
+        events.add(new ChoiceEvent(
+                "An overseas university invites collaboration on a cultural exchange program.",
+                scoreManager,
+                "Join (enhance diversity but incur costs)", 15,
+                "Decline (save money but miss a global opportunity)", -5
+        ));
+
     }
 
     public EventMenu setEvents() {

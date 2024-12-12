@@ -7,17 +7,16 @@ import io.github.unisim.building.BuildingType;
 import io.github.unisim.world.World;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ScoreManager {
     public static int score;
     public float timeElapsed;
-    public float decreaseInterval;
+    private final float DECREASE_INTERVAL = 2000;
 
     public ScoreManager() {
         score = 0;
         timeElapsed = 0;
-        decreaseInterval = 2000;
-
     }
 
     /**
@@ -25,36 +24,41 @@ public class ScoreManager {
      * building is
      *
      */
-    public void UpdateScore(Building placed, ArrayList<Building> buildings, World world) {
+    public void updateScore(Building placed, ArrayList<Building> buildings, Map<BuildingType,Integer> buildingCounts) {
         BuildingType type = placed.type;
 
-        // 1. Get total number of each category of buildings
-        int recreational = world.getBuildingCount(BuildingType.RECREATION);
-        int learning = world.getBuildingCount(BuildingType.LEARNING);
-        int eating = world.getBuildingCount(BuildingType.EATING);
-        int sleeping =world.getBuildingCount(BuildingType.SLEEPING);
+        // 1. Initialize counters
 
-        // 2. Find the smallest and largest count among the 4 categories
-        int minCount = Math.min(Math.min(recreational, eating), Math.min(sleeping, learning));
-        int maxCount = Math.max(Math.max(recreational, eating), Math.max(sleeping, learning));
+        int recreationalCount = buildingCounts.get(BuildingType.RECREATION);
+        int learningCount = buildingCounts.get(BuildingType.LEARNING);
+        int sleepingCount = buildingCounts.get(BuildingType.SLEEPING);
+        int eatingCount = buildingCounts.get(BuildingType.EATING);
 
         // TODO 3. For now just returns baseScore of 10
         int baseScore = calculateBaseScore(placed, buildings);
+        int placedCount = buildingCounts.get(type);
 
-        // 4. The bigger imbalance grows, the smaller will score increase
-        int imbalance = maxCount - minCount;
-        int scoreIncrease = imbalance * 2;
+        // 3. Find the smallest and largest count among the 4 categories
+        int minCount = Math.min(Math.min(recreationalCount, eatingCount), Math.min(sleepingCount, learningCount));
+        int maxCount = Math.max(Math.max(recreationalCount, eatingCount), Math.max(sleepingCount, learningCount));
 
         // 4. Handle cases when there are too few or too many buildings of the same type
         int placedBuildingTypeCount = world.getBuildingCount(type);
 
-        if(placedBuildingTypeCount == minCount) {
-            score += baseScore + scoreIncrease;
-        } else if (placedBuildingTypeCount == maxCount) {
-            score += baseScore - scoreIncrease;
-        } else {
-            score += baseScore;
-        }
+        // TODO 4. For now just returns baseScore of 10
+        int baseScoreChange = calculateBaseScore(placed, buildings);
+
+        // 5. The bigger imbalance grows, the smaller will score Change
+        final int SCORE_MULTIPLIER = 2;
+
+        int imbalanceScoreChange = (maxCount - minCount) * SCORE_MULTIPLIER;
+
+        // 6. Handle cases when there are too few or too many buildings of the same type
+        int totalScoreChange = baseScoreChange;
+
+        totalScoreChange = placedCount == minCount ? totalScoreChange + imbalanceScoreChange : placedCount == maxCount ? totalScoreChange - imbalanceScoreChange : totalScoreChange;
+
+        setScore(score + totalScoreChange);
     }
 
     public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
@@ -85,43 +89,41 @@ public class ScoreManager {
 
     public void decrementScoreWithTime(float deltaTime) {
             timeElapsed += deltaTime;
-            if (timeElapsed >= decreaseInterval) {
+            if (timeElapsed >= DECREASE_INTERVAL) {
                 if (score > 0) {
-                    score -= 1;
+                    setScore(--score);
                     timeElapsed = 0;
                 }
             }
     }
 
-    public void negativeEventScore(){
-        if(score - 10 < 0){
-            score = 0;
-        } else {
-            score = score - 10;
-        }
-    }
-    public void positiveEventScore(){
-        if(score + 10 > 100){
-            score = 100;
-        } else {
-            score = score + 10;
-        }
-    }
+
 
     /**
-     * Sets score when called to 0
+     * Sets score to 0 when called
      */
-    public void setScore() {
+    public void resetScore() {
         score = 0;
     }
 
     /**
-     * Returns score
+     * Sets user score to the parameter newValue
+     */
+    public void setScore(int newValue) {
+        score = newValue;
+    }
+
+    /**
+     * Returns user score of the current session
      *
-     * @return
+     * @return current score (int)
      */
     public int getScore() {
         return score;
+    }
+
+    public void updateScore(int updateValue){
+        score += updateValue;
     }
 
 

@@ -20,7 +20,12 @@ public class BuildingManager {
   // create a list of buildings which will be sorted by a height metric derived from
   // the locations of the corners of the buildings.
   private ArrayList<Building> buildings = new ArrayList<>();
-  private Map<BuildingType, Integer> buildingCounts = new HashMap<>();
+  private Map<BuildingType, Integer> buildingCounts = new HashMap<>() {{
+    for (BuildingType buildingType : BuildingType.values()) {
+    put(buildingType, 0);
+    }
+}};
+
   private Matrix4 isoTransform;
   private Building previewBuilding;
 
@@ -159,10 +164,7 @@ public class BuildingManager {
       if (building == previewBuilding) {
       return;
     }
-    if (!buildingCounts.containsKey(building.type)) {
-      buildingCounts.put(building.type, 1);
-      return;
-    }
+
     buildingCounts.put(building.type, buildingCounts.get(building.type) + 1);
   }
 
@@ -179,6 +181,13 @@ public class BuildingManager {
     }
     return buildingCounts.get(type);
   }
+
+    public int getBuildingCount() {
+        int i = 0;
+        for (BuildingType type: BuildingType.values()) {
+            i+= (getBuildingCount(type));
+        } return i;
+    }
 
   /**
    * Sets the building to render as a 'preview' on the map prior to placement.
@@ -227,4 +236,9 @@ public class BuildingManager {
   public ArrayList<Building> getBuildings(){
     return buildings;
   }
+
+  public Map<BuildingType,Integer> getBuildingCounts() {
+   return buildingCounts;
+  }
 }
+
