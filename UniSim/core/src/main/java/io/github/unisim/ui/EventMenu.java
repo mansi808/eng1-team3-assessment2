@@ -32,7 +32,7 @@ public class EventMenu {
     private Stage stage;
 
 
-    public EventMenu(Stage stage, ScoreManager scoreManager) {
+    public EventMenu(Stage stage) {
         this.stage = stage;
         this.table = null;
 
@@ -75,6 +75,8 @@ public class EventMenu {
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
 
         eventLabel = new Label("", skin);
+        eventLabel.setWrap(true);
+        eventLabel.setAlignment(Align.center);
         eventLabelCell = table.add(eventLabel).align(Align.center);
         table.setBackground(new TextureRegionDrawable(backgroundTexture));
         table.row();
@@ -102,6 +104,8 @@ public class EventMenu {
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/background.png"));
 
         eventLabel = new Label("", skin);
+        eventLabel.setWrap(true);
+
         eventLabelCell = table.add(eventLabel).align(Align.center);
         table.setBackground(new TextureRegionDrawable(backgroundTexture));
         table.row();
