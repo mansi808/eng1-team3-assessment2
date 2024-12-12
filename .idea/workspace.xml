@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Implement Music + building sound">
+    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Changed time for cooldown timer.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameOverMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameOverMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/CooldownTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/CooldownTimer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +24,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$/UniSim/lwjgl3">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/UniSim">
           <activation />
         </task>
         <projects_view>
@@ -249,15 +253,7 @@
       <option name="project" value="LOCAL" />
       <updated>1734015948183</updated>
     </task>
-    <task id="LOCAL-00010" summary="Implement Music + building sound">
-      <option name="closed" value="true" />
-      <created>1734017262623</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1734017262623</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +278,7 @@
     <MESSAGE value="Events show up 3 times in 5 minutes" />
     <MESSAGE value="LeaderBoard Implemented" />
     <MESSAGE value="Implement Cooldown timer" />
-    <MESSAGE value="Implement Music + building sound" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Music + building sound" />
+    <MESSAGE value="Changed time for cooldown timer." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed time for cooldown timer." />
   </component>
 </project>
