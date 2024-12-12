@@ -348,7 +348,7 @@ public class World {
     );
     buildings = buildingManager.getBuildings();
     scoreManager.updateScore(selectedBuilding, buildings, buildingManager.getBuildingCounts());
-    placementTimer.startCooldown(selectedBuilding);
+    placementTimer.startCooldown(selectedBuilding.type);
     Main.buildingSoundEffect.play();
     selectedBuilding = null;
     return true;

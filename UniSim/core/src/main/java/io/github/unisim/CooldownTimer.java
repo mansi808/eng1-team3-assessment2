@@ -20,16 +20,23 @@ public class CooldownTimer {
         }
     }
 
-    public void startCooldown(Building selectedBuilding) {
-        if (selectedBuilding.type == BuildingType.RECREATION){
-            cooldownDuration = 5;
-        } else if (selectedBuilding.type == BuildingType.LEARNING){
-            cooldownDuration = 10;
-        }else if (selectedBuilding.type == BuildingType.SLEEPING){
-            cooldownDuration = 10;
-        }else if (selectedBuilding.type == BuildingType.EATING){
-            cooldownDuration = 5;
-        }
+    public void startCooldown(BuildingType selectedBuildingType) {
+
+        switch(selectedBuildingType) {
+
+            case RECREATION:
+                cooldownDuration = 5;
+
+            case LEARNING:
+                cooldownDuration = 10;
+
+            case SLEEPING:
+                cooldownDuration = 10;
+
+            case EATING:
+                cooldownDuration = 5;
+        }   
+
         elapsedTime = 0;
     }
 
