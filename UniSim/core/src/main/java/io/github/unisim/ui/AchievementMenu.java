@@ -24,10 +24,12 @@ public class AchievementMenu {
     private Cell<Label> titleCell;
     private Stage stage;
     private ArrayList<Achievement> achievements = new ArrayList<>();
+    private Leaderboard leaderboard;
 
-    public AchievementMenu(Stage stage) {
+    public AchievementMenu(Stage stage, Leaderboard leaderboard) {
         this.stage = stage;
         this.table = null;
+        this.leaderboard = leaderboard;
     }
 
     /**
@@ -108,6 +110,8 @@ public class AchievementMenu {
                 achievements.clear();
                 GameState.paused = false;
                 GameState.gameOver=true;
+                leaderboard.endGame();
+
             }
         });
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

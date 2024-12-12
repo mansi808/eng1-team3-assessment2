@@ -36,22 +36,16 @@ public class Leaderboard {
     private int EndGameScore;
     private String name;
     private TextButton submitButton;
+    private ScoreManager manager;
 
 
     public Leaderboard(Stage stage, ScoreManager scoreManager) {
+        manager = scoreManager;
         this.stage = stage;
         this.table = null;
-        EndGameScore = scoreManager.getScore();
         readFile();
         createBoard();
 
-        for (String score : playerScores) {
-            int scoreInt = Integer.parseInt(score);
-            if (scoreInt < EndGameScore) {
-                getName();
-                break;
-            }
-        }
     }
 
     /**
@@ -73,8 +67,20 @@ public class Leaderboard {
 
     }
 
+    public void endGame(){
+        EndGameScore = manager.getScore();
+        for (String score : playerScores) {
+            int scoreInt = Integer.parseInt(score);
+            if (scoreInt < EndGameScore) {
+                getName();
+                break;
+            }
+        }
+    }
+
     public void createBoard() {
         this.table = new Table();
+
 
         table.add(leaderboardLabel).align(Align.center);
         table.row().pad(10, 0, 10, 0);

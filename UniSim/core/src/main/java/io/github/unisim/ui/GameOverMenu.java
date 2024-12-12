@@ -26,6 +26,7 @@ public class GameOverMenu {
   private Cell<TextButton> buttonCell;
   private InputMultiplexer inputMultiplexer = new InputMultiplexer();
 
+
   /**
    * Creates a new GameOverMenu and initialises all events and UI elements used in the menu.
    */
@@ -33,6 +34,7 @@ public class GameOverMenu {
     stage = new Stage(new ScreenViewport());
     table = new Table();
     skin = GameState.defaultSkin;
+
 
     // Play button
     mainMenuButton = new TextButton("Return to Main Menu", skin);
