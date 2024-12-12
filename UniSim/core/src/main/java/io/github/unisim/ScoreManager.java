@@ -52,10 +52,13 @@ public class ScoreManager {
         int totalScoreChange = baseScoreChange;
 
         totalScoreChange = placedCount == minCount ? totalScoreChange + imbalanceScoreChange : placedCount == maxCount ? totalScoreChange - imbalanceScoreChange : totalScoreChange;
-
-        setScore(score + totalScoreChange);
+        int newScore = score + totalScoreChange;
+        setScore(checkScoreBounds(newScore));
     }
 
+    public int checkScoreBounds(int score){
+        return Math.max(score, 0);
+    }
 
     public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
         Building closest = null;
@@ -119,7 +122,8 @@ public class ScoreManager {
     }
 
     public void updateScore(int updateValue){
-        score += updateValue;
+        int newScore = score + updateValue;
+        setScore(checkScoreBounds(newScore));
     }
 
 

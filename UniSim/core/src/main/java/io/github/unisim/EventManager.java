@@ -56,12 +56,14 @@ public class EventManager {
 
     }
 
-    public EventMenu setEvents() {
+    public void setEvents() {
         // Create a new event menu and set the current event
+        if (events.isEmpty()){
+            return;
+        }
         Event currentEvent = getRandomEvent();
         eventMenu.setCurrentEvent(currentEvent);
         eventMenu.update();
-        return eventMenu;
     }
 
     public EventMenu showEvent() {
@@ -79,6 +81,9 @@ public class EventManager {
     public Event getRandomEvent() {
         Random rand = new Random();
         int i = rand.nextInt(events.size());
-        return events.get(i);
+        Event selectedEvent = events.get(i);
+        events.remove(i);
+
+        return selectedEvent;
     }
 }
