@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class EventMenu {
 
-    private ShapeActor popUpWindow = new ShapeActor(Colors.get("BLACK"));
     public Table table;
     private Skin skin = new Skin(Gdx.files.internal("ui/uiskin.json"));
     private Cell<Label> eventLabelCell = new Cell<>();
@@ -35,7 +34,6 @@ public class EventMenu {
     public EventMenu(Stage stage) {
         this.stage = stage;
         this.table = null;
-
     }
 
     /**
@@ -45,7 +43,6 @@ public class EventMenu {
      * @param height - The enw height of the screen in pixels.
      */
     public void resize(int width, int height) {
-        popUpWindow.setBounds(width*0.35f, height * 0.4f,width*0.3f, height*0.3f);
         if (table!=null) {
             table.setBounds(width * 0.35f, height * 0.4f, width * 0.3f, height * 0.3f);
             eventLabelCell.width(width * 0.2f).height(height * 0.2f);
