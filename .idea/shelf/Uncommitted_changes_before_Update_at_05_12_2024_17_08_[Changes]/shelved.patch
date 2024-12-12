@@ -1,0 +1,120 @@
+Index: UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package io.github.unisim.ui;\n\nimport com.badlogic.gdx.Gdx;\nimport com.badlogic.gdx.InputMultiplexer;\nimport com.badlogic.gdx.InputProcessor;\nimport com.badlogic.gdx.Screen;\nimport com.badlogic.gdx.scenes.scene2d.Stage;\nimport com.badlogic.gdx.utils.viewport.ScreenViewport;\nimport io.github.unisim.GameState;\nimport io.github.unisim.Timer;\nimport io.github.unisim.world.UiInputProcessor;\nimport io.github.unisim.world.World;\nimport io.github.unisim.world.WorldInputProcessor;\n\n/**\n * Game screen where the main game is rendered and controlled.\n * Supports pausing the game with a pause menu.\n */\npublic class GameScreen implements Screen {\n  private World world = new World();\n  private Stage stage = new Stage(new ScreenViewport());\n  private InfoBar infoBar;\n  private BuildingMenu buildingMenu;\n  private Timer timer;\n  private InputProcessor uiInputProcessor = new UiInputProcessor(stage);\n  private InputProcessor worldInputProcessor = new WorldInputProcessor(world);\n  private InputMultiplexer inputMultiplexer = new InputMultiplexer();\n  private GameOverMenu gameOverMenu = new GameOverMenu();\n\n  /**\n   * Constructor for the GameScreen.\n   */\n  public GameScreen() {\n    timer = new Timer(300_000);\n    infoBar = new InfoBar(stage, timer, world);\n    buildingMenu = new BuildingMenu(stage, world);\n\n    inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);\n    inputMultiplexer.addProcessor(stage);\n    inputMultiplexer.addProcessor(uiInputProcessor);\n    inputMultiplexer.addProcessor(worldInputProcessor);\n  }\n\n  @Override\n  public void show() {\n  }\n\n  @Override\n  public void render(float delta) {\n    world.render();\n    float dt = Gdx.graphics.getDeltaTime();\n    if (!GameState.paused && !GameState.gameOver) {\n      if (!timer.tick(dt * 1000)) {\n        GameState.gameOver = true;\n        Gdx.input.setInputProcessor(gameOverMenu.getInputProcessor());\n      }\n    }\n    stage.act(dt);\n    infoBar.update();\n    buildingMenu.update();\n    stage.draw();\n    if (GameState.gameOver) {\n      world.zoom((world.getMaxZoom() - world.getZoom()) * 2f);\n      world.pan((150 - world.getCameraPos().x) / 10, -world.getCameraPos().y / 10);\n      gameOverMenu.render(delta);\n    }\n  }\n\n  @Override\n  public void resize(int width, int height) {\n    world.resize(width, height);\n    stage.getViewport().update(width, height, true);\n    infoBar.resize(width, height);\n    buildingMenu.resize(width, height);\n    gameOverMenu.resize(width, height);\n  }\n\n  @Override\n  public void pause() {\n  }\n\n  @Override\n  public void resume() {\n    Gdx.input.setInputProcessor(inputMultiplexer);\n\n    if (GameState.gameOver) {\n      GameState.gameOver = false;\n      GameState.paused = true;\n      timer.reset();\n      world.reset();\n      infoBar.reset();\n      buildingMenu.reset();\n    }\n  }\n\n  @Override\n  public void hide() {\n  }\n\n  @Override\n  public void dispose() {\n    world.dispose();\n    stage.dispose();\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java b/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java
+--- a/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java	(revision 70722d1e77ac1427a83c8fcad4e0f9089d9251fc)
++++ b/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java	(date 1733418323436)
+@@ -20,6 +20,7 @@
+   private World world = new World();
+   private Stage stage = new Stage(new ScreenViewport());
+   private InfoBar infoBar;
++  private EventsScreen eventsScreen;
+   private BuildingMenu buildingMenu;
+   private Timer timer;
+   private InputProcessor uiInputProcessor = new UiInputProcessor(stage);
+@@ -34,6 +35,7 @@
+     timer = new Timer(300_000);
+     infoBar = new InfoBar(stage, timer, world);
+     buildingMenu = new BuildingMenu(stage, world);
++    eventsScreen = new EventsScreen();
+ 
+     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);
+     inputMultiplexer.addProcessor(stage);
+Index: UniSim/core/src/main/java/io/github/unisim/ui/EventsScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UniSim/core/src/main/java/io/github/unisim/ui/EventsScreen.java b/UniSim/core/src/main/java/io/github/unisim/ui/EventsScreen.java
+new file mode 100644
+--- /dev/null	(date 1733418323424)
++++ b/UniSim/core/src/main/java/io/github/unisim/ui/EventsScreen.java	(date 1733418323424)
+@@ -0,0 +1,84 @@
++package io.github.unisim.ui;
++
++import com.badlogic.gdx.Gdx;
++import com.badlogic.gdx.InputMultiplexer;
++import com.badlogic.gdx.Screen;
++import com.badlogic.gdx.scenes.scene2d.Stage;
++import com.badlogic.gdx.scenes.scene2d.ui.Cell;
++import com.badlogic.gdx.scenes.scene2d.ui.Label;
++import com.badlogic.gdx.scenes.scene2d.ui.Skin;
++import com.badlogic.gdx.scenes.scene2d.ui.Table;
++import com.badlogic.gdx.utils.Align;
++import io.github.unisim.GameState;
++
++public class EventsScreen implements Screen {
++    private Stage stage;
++    private Table table;
++    private Skin skin;
++    private Label testLabel;
++    private Table eventsTable = new Table();
++    private Cell<Label> testLabelCell;
++    private boolean isVisible = false;
++
++    private InputMultiplexer inputMultiplexer = new InputMultiplexer();
++
++
++    public EventsScreen() {
++        stage = new Stage();
++        table = new Table();
++        skin = GameState.defaultSkin;
++
++        testLabel = new Label("Hello", skin);
++        eventsTable.center().center();
++        testLabelCell = eventsTable.add(testLabel).align(Align.center);
++
++        stage.addActor(eventsTable);
++
++    }
++
++    @Override
++    public void show() {
++
++    }
++
++    @Override
++    public void render(float delta) {
++        if (isVisible) {
++            // Draw the stage containing buttons
++            stage.act(delta);
++            stage.draw();
++        }
++    }
++
++    @Override
++    public void resize(int width, int height) {
++        stage.getViewport().update(width, height, true);
++
++    }
++
++    @Override
++    public void pause() {
++
++    }
++
++    @Override
++    public void resume() {
++        Gdx.input.setInputProcessor(inputMultiplexer);
++
++    }
++
++    @Override
++    public void hide() {
++
++    }
++
++    @Override
++    public void dispose() {
++        stage.dispose();
++        skin.dispose();
++    }
++
++    public void setVisible(boolean isVisible) {
++        this.isVisible = isVisible;
++    }
++}
