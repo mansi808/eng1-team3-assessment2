@@ -45,19 +45,20 @@ public class GameScreen implements Screen {
 
     eventMenu = new EventMenu(stage);
     world = new World(scoreManager);
-//    timer = new Timer(300_000);
+    timer = new Timer(300_000);
+    // For testing
     timer = new Timer(2000);
-      infoBar = new InfoBar(stage, timer, world, scoreManager);
+    infoBar = new InfoBar(stage, timer, world, scoreManager);
     buildingMenu = new BuildingMenu(stage, world);
     eventManager = new EventManager(timer, eventMenu, world.scoreManager);
-      gameOverMenu = new GameOverMenu();
+    gameOverMenu = new GameOverMenu();
 
-      leaderboard = new Leaderboard(gameOverMenu.stage, scoreManager);
+    leaderboard = new Leaderboard(gameOverMenu.stage, scoreManager);
 
-      achievementMenu = new AchievementMenu(stage, leaderboard);
-      achievementManager = new AchievementManager(scoreManager, world.getBuildingManager(),achievementMenu);
+    achievementMenu = new AchievementMenu(stage, leaderboard);
+    achievementManager = new AchievementManager(scoreManager, world.getBuildingManager(),achievementMenu);
 
-      uiInputProcessor = new UiInputProcessor(stage);
+    uiInputProcessor = new UiInputProcessor(stage);
     worldInputProcessor = new WorldInputProcessor(world);
     inputMultiplexer = new InputMultiplexer();
     inputMultiplexer.addProcessor(GameState.fullscreenInputProcessor);

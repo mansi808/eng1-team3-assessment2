@@ -5,6 +5,7 @@ import io.github.unisim.building.BuildingType;
 import io.github.unisim.ui.AchievementMenu;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Manages methods for calculating and initialising achievements earned by the player
@@ -34,14 +35,20 @@ public class AchievementManager {
     }
 
     public boolean areEqualBuildingType() {
-        int i = -1;
-        for (BuildingType type: BuildingType.values()) {
-            if (i==-1) {
-                i = buildingManager.getBuildingCount(type);
-            } if (i != buildingManager.getBuildingCount(type)) {
+
+        Map<BuildingType, Integer> buildingCounts = buildingManager.getBuildingCounts();
+
+        int prev = -1;
+
+        for (int count : buildingCounts.values()) {
+            if (count == -1) {
+                count = prev;
+            } else if (count != prev && prev != 0) {
                 return false;
             }
+
         }
+
         return true;
     }
 
