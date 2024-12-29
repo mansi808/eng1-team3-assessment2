@@ -52,7 +52,9 @@ public class ScoreManager {
         int totalScoreChange = baseScoreChange;
 
         totalScoreChange = placedCount == minCount ? totalScoreChange + imbalanceScoreChange : placedCount == maxCount ? totalScoreChange - imbalanceScoreChange : totalScoreChange;
+
         int newScore = score + totalScoreChange;
+        
         setScore(checkScoreBounds(newScore));
     }
 

@@ -86,4 +86,8 @@ public class EventManager {
 
         return selectedEvent;
     }
+
+    public ArrayList<Event> getEvents() {
+        return events;
+    }
 }
