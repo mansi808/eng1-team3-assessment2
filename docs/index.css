@@ -1,90 +1,121 @@
+@font-face {
+  font-family: "RobotoFont";
+  src: url("fonts/Roboto/Roboto.ttf") format("truetype");
+
+  font-family: "RobotoMono";
+  src: url("fonts/Roboto_Mono/static/RobotoMono-Regular.ttf") format("truetype");
+}
+
 :root {
-    --background: #121212;
-    --background-secondary: #1F1B24;
-    --primary: #42a5f5;
-    --secondary: #ab47bc;
-    --text: #fff;
+  --background: #121212;
+  --background-secondary: #1f1b24;
+  --primary: #42a5f5;
+  --secondary: #ab47bc;
+  --text: #fff;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-secondary);
+  font-family: "RobotoMono";
+  background-color: var(--background-secondary);
+  min-width: 500px;
 }
 
 #title-container {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5vh;
-    background-color: var(--background);
-    color: var(--text);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 #title {
-    display: flexbox;
+  font-weight: 600;
+  font-family: "RobotoFont";
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  letter-spacing: 0.05em;
 }
 
 #header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    height: 5vh;
-    background-color: var(--background);
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: auto;
+  background-color: var(--background);
+  user-select: none;
 }
 
 .header-item {
-    display: flexbox;
-    margin-left: 7vw;
-    color: var(--text);
+  display: flexbox;
+  color: var(--text);
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  cursor: pointer;
+
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .header-item > p > a {
-    color: var(--text);
-    text-decoration: none;
+  color: var(--text);
+  text-decoration: none;
 }
 
 .header-item:hover {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-item {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--background);
-    width: 10vw;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: var(--background);
+  width: 40dvh;
+  z-index: 1;
 }
 
 .dropdown-content > a {
-    display: block;
-    text-decoration: none;
-    color: var(--text);
-    border-top: 1px solid var(--text);
-    border-bottom: 1px solid var(--text);
-    padding: 1vh;
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--text);
+  padding: 1vh;
 }
 
 .dropdown-content > a:hover {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
-.dropdown-content > a:last-child, a:first-child {
-    border: none;
+.dropdown-content > a:last-child {
+  border: none;
+}
+
+#img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #gameplay-image {
-    width: 70vw;
-    padding-left: 15vw;
+  height: auto;
+  width: 80vw;
+  min-width: 500px;
+  max-width: 70%;
 }

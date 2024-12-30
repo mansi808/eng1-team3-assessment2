@@ -27,5 +27,6 @@ Outstanding features:
       testing tooling, and descriptions of manual test-cases that you designed to test the
       parts of the code that could not be covered by your automated tests (4 marks)
 - [ ] All the project-related Assessment 2 deliverables, as well as the other team’s
-      Assessment 1 versions (please note the specific requirements for updates
-- [ ] The executable JAR for the game
+      Assessment 1 versions (please note the specific requirements for updates)
+- [x] The executable JAR for the game
+- [ ] Provide weekly snapshots of the plan from Methods and selection planning on your team’s website
