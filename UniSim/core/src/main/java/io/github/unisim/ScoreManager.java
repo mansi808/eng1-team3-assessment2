@@ -9,11 +9,23 @@ import io.github.unisim.world.World;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * The Score manager.
+ */
 public class ScoreManager {
+    /**
+     * The Score
+     */
     public static int score;
+    /**
+     * The Time elapsed.
+     */
     public float timeElapsed;
     private final float DECREASE_INTERVAL = 2000;
 
+    /**
+     * Instantiates a new Score manager.
+     */
     public ScoreManager() {
         score = 0;
         timeElapsed = 0;
@@ -23,6 +35,9 @@ public class ScoreManager {
      * Runs everytime building placed to change score depending on where
      * building is
      *
+     * @param placed         the placed
+     * @param buildings      the buildings
+     * @param buildingCounts the building counts
      */
     public void updateScore(Building placed, ArrayList<Building> buildings, Map<BuildingType,Integer> buildingCounts) {
         BuildingType type = placed.type;
@@ -58,10 +73,23 @@ public class ScoreManager {
         setScore(checkScoreBounds(newScore));
     }
 
+    /**
+     * Check score bounds int.
+     *
+     * @param score the score
+     * @return the int
+     */
     public int checkScoreBounds(int score){
         return Math.max(score, 0);
     }
 
+    /**
+     * Calculate base score int.
+     *
+     * @param placed    the placed
+     * @param buildings the buildings
+     * @return the int
+     */
     public int calculateBaseScore(Building placed, ArrayList<Building> buildings) {
         Building closest = null;
         double distance = 0;
@@ -88,6 +116,11 @@ public class ScoreManager {
         return Math.pow((Math.pow((building.location.x - placed.location.x),2) + Math.pow((building.location.y - placed.location.y),2)),0.5);
     }
 
+    /**
+     * Decrement score with time.
+     *
+     * @param deltaTime the delta time
+     */
     public void decrementScoreWithTime(float deltaTime) {
             timeElapsed += deltaTime;
             if (timeElapsed >= DECREASE_INTERVAL) {
@@ -99,7 +132,6 @@ public class ScoreManager {
     }
 
 
-
     /**
      * Sets score to 0 when called
      */
@@ -109,6 +141,8 @@ public class ScoreManager {
 
     /**
      * Sets user score to the parameter newValue
+     *
+     * @param newValue the new value
      */
     public void setScore(int newValue) {
         score = newValue;
@@ -123,6 +157,11 @@ public class ScoreManager {
         return score;
     }
 
+    /**
+     * Update score.
+     *
+     * @param updateValue the update value
+     */
     public void updateScore(int updateValue){
         int newScore = score + updateValue;
         setScore(checkScoreBounds(newScore));

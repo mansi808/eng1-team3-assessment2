@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Changed time for cooldown timer.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/assets/leaderboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/AchievementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/AchievementMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameOverMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameOverMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/Leaderboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ChoiceEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ChoiceEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ScoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ScoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/SingleEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/SingleEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

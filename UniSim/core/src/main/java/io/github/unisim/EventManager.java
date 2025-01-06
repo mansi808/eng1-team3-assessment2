@@ -6,6 +6,10 @@ import io.github.unisim.ui.EventMenu;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+/**
+ * Event manager.
+ */
 public class EventManager {
     private ArrayList<Event> events = new ArrayList<>();
     private EventMenu eventMenu;
@@ -15,6 +19,13 @@ public class EventManager {
     private Stage stage;
     private ScoreManager scoreManager;
 
+    /**
+     * Instantiates a new Event manager.
+     *
+     * @param timer        the timer
+     * @param eventMenu    the event menu
+     * @param scoreManager the score manager
+     */
     public EventManager(Timer timer, EventMenu eventMenu, ScoreManager scoreManager) {
         this.timer = timer;
         this.eventMenu = eventMenu;
@@ -56,6 +67,9 @@ public class EventManager {
 
     }
 
+    /**
+     * Sets events.
+     */
     public void setEvents() {
         // Create a new event menu and set the current event
         if (events.isEmpty()){
@@ -66,6 +80,11 @@ public class EventManager {
         eventMenu.update();
     }
 
+    /**
+     * Show event event menu.
+     *
+     * @return the event menu
+     */
     public EventMenu showEvent() {
         float deltaTime = Gdx.graphics.getDeltaTime();
         timeElapsed += deltaTime;
@@ -78,6 +97,11 @@ public class EventManager {
         return null;
     }
 
+    /**
+     * Gets random event.
+     *
+     * @return the random event
+     */
     public Event getRandomEvent() {
         Random rand = new Random();
         int i = rand.nextInt(events.size());
@@ -87,6 +111,11 @@ public class EventManager {
         return selectedEvent;
     }
 
+    /**
+     * Gets events.
+     *
+     * @return the events
+     */
     public ArrayList<Event> getEvents() {
         return events;
     }
