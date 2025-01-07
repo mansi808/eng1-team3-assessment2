@@ -49,6 +49,10 @@ public class TimerTests extends AbstractHeadlessGdxTest {
 
     assertEquals("05:00", TestTimer.getRemainingTimeToString());
 
+    TestTimer.tick(1000);
+
+    assertEquals("04:59", TestTimer.getRemainingTimeToString());
+
   }
 
   @Test 
