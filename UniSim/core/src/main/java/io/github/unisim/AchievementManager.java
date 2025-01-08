@@ -5,7 +5,9 @@ import io.github.unisim.building.BuildingType;
 import io.github.unisim.ui.AchievementMenu;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Manages methods for calculating and initialising achievements earned by the player
@@ -25,6 +27,7 @@ public class AchievementManager {
     }
 
 
+
     public boolean isScore500() {
         return scoreManager.getScore() > 500;
     }
@@ -35,21 +38,24 @@ public class AchievementManager {
     }
 
     public boolean areEqualBuildingType() {
-
         Map<BuildingType, Integer> buildingCounts = buildingManager.getBuildingCounts();
 
-        int prev = -1;
-
-        for (int count : buildingCounts.values()) {
-            if (count == -1) {
-                count = prev;
-            } else if (count != prev && prev != 0) {
-                return false;
-            }
-
+        // Check if buildingCounts is empty
+        if (buildingCounts.isEmpty()) {
+            return true;  // Consider an empty map as "equal" (i.e., no buildings, no issue)
         }
 
-        return true;
+        // Get the first value (for comparison)
+        Integer firstCount = buildingCounts.values().iterator().next();
+
+        // Iterate over all building counts and check if they match the first count
+        for (int count : buildingCounts.values()) {
+            if (count != firstCount) {
+                return false; // Return false if any count doesn't match the first count
+            }
+        }
+
+        return true; // All counts are equal, return true
     }
 
     public boolean haveZeroScore() {
@@ -58,6 +64,7 @@ public class AchievementManager {
 
 
     public void showAchievement() {
+        achievementMenu.setAchievements(achievements);
         if (!GameState.paused) {
             GameState.paused = true;
             achievementMenu.setAchievements(achievements);
@@ -69,12 +76,11 @@ public class AchievementManager {
      * Updates <code>achievements</code> and initialises each achievement if the methods return true.
      */
     public void calculateAchievements() {
-        if (areEqualBuildingType()) achievements.add(new Achievement("Equaliser","You're the architect of balance, making sure every type of building get" +
+        if (areEqualBuildingType() && buildingManager.getBuildingCount() != 0) achievements.add(new Achievement("Equaliser","You're the architect of balance, making sure every type of building get" +
             "s its fair share of the spotlight!", scoreManager, false));
         if (haveZeroScore()) achievements.add(new Achievement("Minimalist", "Zero? Well, looks like there is still a lot of space for improvement ",scoreManager, false));
         if (areBuildingsFifty()) achievements.add(new Achievement("Maximiser","50 Sites! We might need another campus to keep up with you" , scoreManager, true));
         if (isScore500()) achievements.add(new Achievement("Champion","500? Gosh! we might need to bring up the heat" , scoreManager, true));
-        achievementMenu.setAchievements(achievements);
     }
 
     public ArrayList<Achievement> getAchievements() {

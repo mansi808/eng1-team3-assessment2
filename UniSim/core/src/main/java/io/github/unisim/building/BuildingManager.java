@@ -19,6 +19,8 @@ import java.util.Map;
 public class BuildingManager {
   // create a list of buildings which will be sorted by a height metric derived from
   // the locations of the corners of the buildings.
+  private Matrix4 isoTransform;
+  private Matrix4 invIsoTransform;
   private ArrayList<Building> buildings = new ArrayList<>();
   private Map<BuildingType, Integer> buildingCounts = new HashMap<>() {{
     for (BuildingType buildingType : BuildingType.values()) {
@@ -26,12 +28,25 @@ public class BuildingManager {
     }
 }};
 
-  private Matrix4 isoTransform;
   private Building previewBuilding;
 
-  public BuildingManager(Matrix4 isoTransform) {
-    this.isoTransform = isoTransform;
+  public BuildingManager() {
+    initIsometricTransform();
 
+  }
+
+  private void initIsometricTransform() {
+    // create the isometric transform
+    isoTransform = new Matrix4();
+    isoTransform.idt();
+
+    // isoTransform.translate(0, 32, 0);
+    isoTransform.scale((float) (Math.sqrt(2.0) / 2.0), (float) (Math.sqrt(2.0) / 4.0), 1.0f);
+    isoTransform.rotate(0.0f, 0.0f, 1.0f, -45);
+
+    // ... and the inverse matrix
+    invIsoTransform = new Matrix4(isoTransform);
+    invIsoTransform.inv();
   }
 
   /**
@@ -239,6 +254,9 @@ public class BuildingManager {
 
   public Map<BuildingType,Integer> getBuildingCounts() {
    return buildingCounts;
+  }
+  public void setBuildingCounts(Map<BuildingType, Integer> buildingCounts) {
+    this.buildingCounts = buildingCounts;
   }
 }
 

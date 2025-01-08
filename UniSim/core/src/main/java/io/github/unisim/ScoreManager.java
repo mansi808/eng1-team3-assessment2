@@ -16,7 +16,7 @@ public class ScoreManager {
     /**
      * The Score
      */
-    public static int score;
+    public int score;
     /**
      * The Time elapsed.
      */

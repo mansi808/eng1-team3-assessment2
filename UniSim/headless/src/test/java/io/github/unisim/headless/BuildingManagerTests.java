@@ -43,7 +43,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
   public void testGetBuildings() {
     initIsometricTransform();
-    BuildingManager TestBuildingManager = new BuildingManager(isoTransform);
+    BuildingManager TestBuildingManager = new BuildingManager();
 
     ArrayList<Building> buildings = TestBuildingManager.getBuildings();
 
@@ -54,7 +54,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
   public void testPlaceBuilding() {
     initIsometricTransform();
-    BuildingManager TestBuildingManager = new BuildingManager(isoTransform);
+    BuildingManager TestBuildingManager = new BuildingManager();
 
     Building TestBuilding = new Building(
       new Texture(Gdx.files.internal("buildings/library.png")),
@@ -78,7 +78,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
   public void testGetBuildingCount() {
     initIsometricTransform();
-    BuildingManager TestBuildingManager = new BuildingManager(isoTransform);
+    BuildingManager TestBuildingManager = new BuildingManager();
 
     Building TestBuilding = new Building(
       new Texture(Gdx.files.internal("buildings/library.png")),

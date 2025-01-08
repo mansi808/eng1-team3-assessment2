@@ -65,7 +65,7 @@ public class World {
   public World(ScoreManager gameScoreManager) {
     camera.zoom = 0.05f;
     initIsometricTransform();
-    buildingManager = new BuildingManager(isoTransform);
+    buildingManager = new BuildingManager();
     selectedBuilding = null;
     scoreManager = gameScoreManager;
     placementTimer = new CooldownTimer(10);
@@ -379,7 +379,7 @@ public class World {
     zoomDt = 0f;
     camera.zoom = 0.05f;
     initIsometricTransform();
-    buildingManager = new BuildingManager(isoTransform);
+    buildingManager = new BuildingManager();
     selectedBuilding = null;
   }
 
