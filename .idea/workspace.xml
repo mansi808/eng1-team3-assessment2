@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="BuildingManager and EventManager Tests">
-      <change beforePath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/ProjectPlanAsses2pt1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/ProjectPlanAsses2pt2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/weekly-plans-assessment2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/weekly-plans-assessment2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/weekly-plans.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/weekly-plans.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +122,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets",
+    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/docs/diagrams/img/plans",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,6 +133,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\docs\diagrams\img\plans" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets\ui" />
     </key>
@@ -139,7 +144,7 @@
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BuildingManagerTests">
+  <component name="RunManager" selected="Gradle.UniSim:lwjgl3 [run]">
     <configuration name="BuildingManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -249,11 +254,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
         <item itemvalue="Gradle.BuildingManagerTests" />
         <item itemvalue="Gradle.EventManagerTests" />
         <item itemvalue="Gradle.BuildingManagerTests.testPlaceBuilding" />
         <item itemvalue="JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
       </list>
     </recent_temporary>
   </component>
@@ -276,6 +281,7 @@
       <workItem from="1733232341736" duration="25093000" />
       <workItem from="1733752374666" duration="15075000" />
       <workItem from="1736590614915" duration="3746000" />
+      <workItem from="1736616678992" duration="2603000" />
     </task>
     <task id="LOCAL-00001" summary="Score Imbalance Calculator Implemented">
       <option name="closed" value="true" />
