@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="reverted to previous commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="BuildingManager and EventManager Tests">
       <change beforePath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/EventManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/EventManagerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +139,7 @@
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EventManagerTests">
+  <component name="RunManager" selected="Gradle.BuildingManagerTests">
     <configuration name="BuildingManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -251,8 +249,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.EventManagerTests" />
         <item itemvalue="Gradle.BuildingManagerTests" />
+        <item itemvalue="Gradle.EventManagerTests" />
         <item itemvalue="Gradle.BuildingManagerTests.testPlaceBuilding" />
         <item itemvalue="JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more" />
         <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
@@ -379,6 +377,7 @@
     <MESSAGE value="Changed time for cooldown timer." />
     <MESSAGE value="Merged Tests" />
     <MESSAGE value="reverted to previous commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverted to previous commit" />
+    <MESSAGE value="BuildingManager and EventManager Tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="BuildingManager and EventManager Tests" />
   </component>
 </project>

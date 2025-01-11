@@ -26,7 +26,7 @@ public class EventManagerTests extends AbstractHeadlessGdxTest {
   }
 
   @Test
-  public void testSingleEventBehavior() {
+  public void testSingleEventBehaviour() {
     ScoreManager scoreManager = new ScoreManager();
     SingleEvent singleEvent = new SingleEvent("Test single event", scoreManager, 10);
 
@@ -38,7 +38,7 @@ public class EventManagerTests extends AbstractHeadlessGdxTest {
   }
 
   @Test
-  public void testChoiceEventBehaviorOption1() {
+  public void testChoiceEventBehaviourOption1() {
     ScoreManager scoreManager = new ScoreManager();
     ChoiceEvent choiceEvent = new ChoiceEvent(
             "Test choice event",
@@ -54,7 +54,7 @@ public class EventManagerTests extends AbstractHeadlessGdxTest {
     assertEquals(15, scoreManager.getScore(), "Score should increase by 15 after selecting Option 1.");
   }
   @Test
-  public void testChoiceEventBehaviorOption2() {
+  public void testChoiceEventBehaviourOption2() {
     ScoreManager scoreManager = new ScoreManager();
     ChoiceEvent choiceEvent = new ChoiceEvent(
             "Test choice event",
