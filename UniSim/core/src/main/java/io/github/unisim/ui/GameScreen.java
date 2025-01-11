@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
 
     eventMenu = new EventMenu(stage);
     world = new World(scoreManager);
-    timer = new Timer(300_000);
+    timer = new Timer(30_000);
     // For testing
     // timer = new Timer(2000);
     infoBar = new InfoBar(stage, timer, world, scoreManager);
