@@ -58,7 +58,9 @@ public class AchievementMenu {
         }
 
     }
-
+    /**
+     * sets achievements for the menu after calculating
+     */
     public void setAchievements(ArrayList<Achievement> achievements) {
         this.achievements = achievements;
     }
@@ -68,6 +70,10 @@ public class AchievementMenu {
         table.setVisible(true);
     }
 
+
+    /**
+     * displays the achievement menu at the end of the game
+     */
     public void createPopUp(){
         this.table = new Table();
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/popUp.png"));

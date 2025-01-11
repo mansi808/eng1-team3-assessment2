@@ -18,6 +18,11 @@ public class AchievementManager {
     private ScoreManager scoreManager;
     private BuildingManager buildingManager;
     private AchievementMenu achievementMenu;
+
+    /**
+     * Manages methods for calculating and initialising achievements earned by the player
+     * Has a list of methods to calculate achievements
+     */
     private ArrayList<Achievement> achievements = new ArrayList<>(3);
 
     public AchievementManager(ScoreManager scoreManager, BuildingManager buildingManager, AchievementMenu achievementMenu) {
@@ -27,16 +32,24 @@ public class AchievementManager {
     }
 
 
-
+    /**
+     * @return true if score is 500 or over
+     */
     public boolean isScore500() {
         return scoreManager.getScore() > 500;
     }
 
-
+    /**
+     * @return true if there are 50 or more than 50 buildings build by the player
+     */
     public boolean areBuildingsFifty() {
         return buildingManager.getBuildingCount() > 50;
     }
 
+
+    /**
+     * @return true if the number of a certain type of buildings (eg. Recreational, Accomodation) are the the same
+     */
     public boolean areEqualBuildingType() {
         Map<BuildingType, Integer> buildingCounts = buildingManager.getBuildingCounts();
 
@@ -58,11 +71,16 @@ public class AchievementManager {
         return true; // All counts are equal, return true
     }
 
+    /**
+     * @return true if score is zero
+     */
     public boolean haveZeroScore() {
         return scoreManager.getScore() == 0;
     }
 
-
+    /**
+     * displays the UI for the achievements
+     */
     public void showAchievement() {
         achievementMenu.setAchievements(achievements);
         if (!GameState.paused) {

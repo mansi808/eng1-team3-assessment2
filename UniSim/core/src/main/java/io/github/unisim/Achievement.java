@@ -5,6 +5,9 @@ public class Achievement {
     private String description = "";
     private String title;
     private ScoreManager  scoreManager;
+    /**
+     * If it is a positive impact, score increases
+     */
     private boolean isPositiveImpact;
 
     public Achievement(String title, String description, ScoreManager scoreManager, boolean isPositiveImpact) {
