@@ -92,7 +92,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
     TestBuildingManager.placeBuilding(learningBuilding);
 
-    Building building = TestBuildingManager.getBuildings().getFirst();
+    Building building = TestBuildingManager.getBuildings().get(0);
 
     assertEquals(BuildingType.LEARNING, building.type);
   }
@@ -117,7 +117,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
     TestBuildingManager.placeBuilding(recreationBuilding);
 
-    Building building = TestBuildingManager.getBuildings().getFirst();
+    Building building = TestBuildingManager.getBuildings().get(0);
 
     assertEquals(BuildingType.RECREATION, building.type);
   }
@@ -141,7 +141,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
     TestBuildingManager.placeBuilding(sleepingBuilding);
 
-    Building building = TestBuildingManager.getBuildings().getFirst();
+    Building building = TestBuildingManager.getBuildings().get(0);
 
     assertEquals(BuildingType.SLEEPING, building.type);
   }
@@ -164,7 +164,7 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
 
     TestBuildingManager.placeBuilding(eatingBuilding);
 
-    Building building = TestBuildingManager.getBuildings().getFirst();
+    Building building = TestBuildingManager.getBuildings().get(0);
 
     assertEquals(BuildingType.EATING, building.type);
   }
