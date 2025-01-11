@@ -45,22 +45,28 @@ public class AchievementMenu {
             titleCell.padBottom(height*.025f);
             continueButton.pad(height*0.025f,width*0.010f,height*.025f,width*0.010f);
 
-            for (int i=1; i<=table.getChildren().size-2;i+=2){
+
+            for (int i = 1; i <= table.getChildren().size - 2; i += 2) {
                 table.getCell(table.getChild(i)).width(width * 0.5f);
                 table.getCell(table.getChild(i)).height(height * 0.025f);
                 ((Label) table.getChild(i)).setFontScale(height * 0.0015f);
             }
-            for (int i=2; i<= table.getChildren().size-1; i+=2) {
-                table.getCell(table.getChild(i)).width(width * 0.5f);
-                table.getCell(table.getChild(i)).height(height * 0.1f);
-                ((Label) table.getChild(i)).setFontScale(height * 0.0012f);
+            if (!achievements.isEmpty()) {
+                for (int i = 2; i <= table.getChildren().size - 1; i += 2) {
+                    table.getCell(table.getChild(i)).width(width * 0.5f);
+                    table.getCell(table.getChild(i)).height(height * 0.1f);
+                    ((Label) table.getChild(i)).setFontScale(height * 0.0012f);
+                }
             }
         }
 
     }
 
+    /**
+     * sets achievements for the menu after calculating
+     */
     public void setAchievements(ArrayList<Achievement> achievements) {
-        this.achievements = achievements;
+        this.achievements = (ArrayList<Achievement>) achievements.clone();
     }
 
     public void update() {
@@ -68,6 +74,9 @@ public class AchievementMenu {
         table.setVisible(true);
     }
 
+    /**
+     * displays the achievement menu at the end of the game
+     */
     public void createPopUp(){
         this.table = new Table();
         Texture backgroundTexture = new Texture(Gdx.files.internal("ui/popUp.png"));
@@ -77,7 +86,7 @@ public class AchievementMenu {
 
         titleCell = table.add(title).center();
         table.row();
-        if (achievements!=null) {
+        if (!achievements.isEmpty()) {
             for (Achievement achievement : achievements) {
                 String score = achievement.isPositiveImpact() ? "+5" : "-5";
                 Label title = new Label(achievement.getTitle() + " " + score, skin);
@@ -91,10 +100,14 @@ public class AchievementMenu {
                 description.setAlignment(Align.center);
                 table.add(description).align(Align.center);
 
+                table.add(String.valueOf(achievements.size()));
                 table.row();
             }
         } else {
-            table.add("You have got a pristine record of almost doing something noteworthy. Better luck next time! \"");
+            Label message = new Label("You have got a pristine record of almost doing something noteworthy. Better luck next time! ", skin);
+            message.setWrap(true);
+            message.setAlignment(Align.center);
+            table.add(message).align(Align.center);
         }
 
         table.row();
@@ -111,12 +124,14 @@ public class AchievementMenu {
                 GameState.paused = false;
                 GameState.gameOver=true;
                 leaderboard.endGame();
-
             }
         });
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
+    /**
+     * resets the table when game starts over
+     */
     public void reset() {
         table.setVisible(false);
         achievements.clear();

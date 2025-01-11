@@ -11,6 +11,7 @@ import java.util.Set;
 
 /**
  * Manages methods for calculating and initialising achievements earned by the player
+ * Has a list of methods to calculate achievements
  */
 
 public class AchievementManager {
@@ -18,6 +19,9 @@ public class AchievementManager {
     private ScoreManager scoreManager;
     private BuildingManager buildingManager;
     private AchievementMenu achievementMenu;
+    /**
+     * list of achievements the player makes in a game
+     */
     private ArrayList<Achievement> achievements = new ArrayList<>(3);
 
     public AchievementManager(ScoreManager scoreManager, BuildingManager buildingManager, AchievementMenu achievementMenu) {
@@ -26,17 +30,30 @@ public class AchievementManager {
         this.achievementMenu = achievementMenu;
     }
 
-
-
-    public boolean isScore500() {
-        return scoreManager.getScore() > 500;
+    /**
+     * @return true if score is 200 or over
+     */
+    public boolean isScore200() {
+        return scoreManager.getScore() >= 200;
     }
 
+    /**
+     * @return true if score is 400 or over
+     */
+    public boolean isScore400() {
+        return scoreManager.getScore() >= 400;
+    }
 
+    /**
+     * @return true if there are 50 or more than 50 buildings build by the player
+     */
     public boolean areBuildingsFifty() {
         return buildingManager.getBuildingCount() > 50;
     }
 
+    /**
+     * @return true if the number of a certain type of buildings (eg. Recreational, Accomodation) are the the same
+     */
     public boolean areEqualBuildingType() {
         Map<BuildingType, Integer> buildingCounts = buildingManager.getBuildingCounts();
 
@@ -53,18 +70,24 @@ public class AchievementManager {
             if (count != firstCount) {
                 return false; // Return false if any count doesn't match the first count
             }
+
         }
 
         return true; // All counts are equal, return true
     }
 
+    /**
+     * @return true if score is zero
+     */
     public boolean haveZeroScore() {
         return scoreManager.getScore() == 0;
     }
 
 
+    /**
+     * displays the UI for the achievements
+     */
     public void showAchievement() {
-        achievementMenu.setAchievements(achievements);
         if (!GameState.paused) {
             GameState.paused = true;
             achievementMenu.setAchievements(achievements);
@@ -80,7 +103,11 @@ public class AchievementManager {
             "s its fair share of the spotlight!", scoreManager, false));
         if (haveZeroScore()) achievements.add(new Achievement("Minimalist", "Zero? Well, looks like there is still a lot of space for improvement ",scoreManager, false));
         if (areBuildingsFifty()) achievements.add(new Achievement("Maximiser","50 Sites! We might need another campus to keep up with you" , scoreManager, true));
-        if (isScore500()) achievements.add(new Achievement("Champion","500? Gosh! we might need to bring up the heat" , scoreManager, true));
+        if (isScore200()) {
+            achievements.add(new Achievement("Champion","200? Gosh! we might need to bring up the heat for you" , scoreManager, true));
+        } else if (isScore400()) {
+            achievements.add(new Achievement("Champion","400? Gosh! we might need to bring up the heat for you" , scoreManager, true));
+        }
     }
 
     public ArrayList<Achievement> getAchievements() {
