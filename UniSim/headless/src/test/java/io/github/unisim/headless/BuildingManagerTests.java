@@ -75,6 +75,101 @@ public class BuildingManagerTests extends AbstractHeadlessGdxTest {
   }
 
   @Test
+  public void testPlaceLearningBuilding() {
+    initIsometricTransform();
+    BuildingManager TestBuildingManager = new BuildingManager();
+
+    Building learningBuilding = new Building(
+            new Texture(Gdx.files.internal("buildings/library.png")),
+            0.0075f,
+            new Vector2(3.0f, -2.0f),
+            new Point(),
+            new Point(15, 10),
+            false,
+            BuildingType.LEARNING,
+            "Library"
+    );
+
+    TestBuildingManager.placeBuilding(learningBuilding);
+
+    Building building = TestBuildingManager.getBuildings().getFirst();
+
+    assertEquals(BuildingType.LEARNING, building.type);
+  }
+
+
+
+  @Test
+  public void testPlaceRecreationBuilding() {
+    initIsometricTransform();
+    BuildingManager TestBuildingManager = new BuildingManager();
+
+    Building recreationBuilding = new Building(
+            new Texture(Gdx.files.internal("buildings/basketballCourt.png")),
+            0.0025f,
+            new Vector2(1f, -2.4f),
+            new Point(),
+            new Point(6, 9),
+            false,
+            BuildingType.RECREATION,
+            "Basketball Court"
+    );
+
+    TestBuildingManager.placeBuilding(recreationBuilding);
+
+    Building building = TestBuildingManager.getBuildings().getFirst();
+
+    assertEquals(BuildingType.RECREATION, building.type);
+  }
+
+
+  @Test
+  public void testPlaceSleepingBuilding() {
+    initIsometricTransform();
+    BuildingManager TestBuildingManager = new BuildingManager();
+
+    Building sleepingBuilding = new Building(
+            new Texture(Gdx.files.internal("buildings/studentHousing.png")),
+            0.108f,
+            new Vector2(1.4f, -2.8f),
+            new Point(),
+            new Point(11, 11),
+            false,
+            BuildingType.SLEEPING,
+            "Student Accomodation"
+    );
+
+    TestBuildingManager.placeBuilding(sleepingBuilding);
+
+    Building building = TestBuildingManager.getBuildings().getFirst();
+
+    assertEquals(BuildingType.SLEEPING, building.type);
+  }
+
+  @Test
+  public void testPlaceEatingBuilding() {
+    initIsometricTransform();
+    BuildingManager TestBuildingManager = new BuildingManager();
+
+    Building eatingBuilding = new Building(
+            new Texture(Gdx.files.internal("buildings/restaurant.png")),
+            0.0075f,
+            new Vector2(5.0f, -5.0f),
+            new Point(),
+            new Point(14, 10),
+            false,
+            BuildingType.EATING,
+            "Restaurant"
+    );
+
+    TestBuildingManager.placeBuilding(eatingBuilding);
+
+    Building building = TestBuildingManager.getBuildings().getFirst();
+
+    assertEquals(BuildingType.EATING, building.type);
+  }
+
+  @Test
 
   public void testGetBuildingCount() {
     initIsometricTransform();

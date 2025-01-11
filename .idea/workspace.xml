@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Merged Tests">
+    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="reverted to previous commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Achievement.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/Achievement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/AchievementManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/AchievementMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/AchievementMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/core/src/main/java/io/github/unisim/ui/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/BuildingManagerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/EventManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/UniSim/headless/src/test/java/io/github/unisim/headless/EventManagerTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,26 +104,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.UniSim:headless [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UniSim:lwjgl3 [run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;external.system.has.shared.sources&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build UniSim.executor": "Run",
+    "Gradle.BuildingManagerTests.executor": "Run",
+    "Gradle.BuildingManagerTests.testPlaceBuilding.executor": "Run",
+    "Gradle.EventManagerTests.executor": "Run",
+    "Gradle.UniSim:headless [run].executor": "Run",
+    "Gradle.UniSim:lwjgl3 [run].executor": "Run",
+    "JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "external.system.has.shared.sources": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/UniSim/assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
@@ -138,27 +141,77 @@
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.UniSim:lwjgl3 [run]">
-    <configuration name="UniSim:headless [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.EventManagerTests">
+    <configuration name="BuildingManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim/headless" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value=":headless:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.unisim.headless.BuildingManagerTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="BuildingManagerTests.testPlaceBuilding" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":headless:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.unisim.headless.BuildingManagerTests.testPlaceBuilding&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="EventManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":headless:test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.unisim.headless.EventManagerTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="UniSim:lwjgl3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -183,12 +236,25 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="BuildingManagerTests,testPlaceRecreationBuilding and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UniSim.headless.test" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceRecreationBuilding" />
+        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceLearningBuilding" />
+        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceSleepingBuilding" />
+        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceEatingBuilding" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:headless [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
+        <item itemvalue="Gradle.EventManagerTests" />
+        <item itemvalue="Gradle.BuildingManagerTests" />
+        <item itemvalue="Gradle.BuildingManagerTests.testPlaceBuilding" />
+        <item itemvalue="JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more" />
         <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
       </list>
     </recent_temporary>
@@ -312,6 +378,7 @@
     <MESSAGE value="Implement Cooldown timer" />
     <MESSAGE value="Changed time for cooldown timer." />
     <MESSAGE value="Merged Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged Tests" />
+    <MESSAGE value="reverted to previous commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverted to previous commit" />
   </component>
 </project>
