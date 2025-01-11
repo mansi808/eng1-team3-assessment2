@@ -2,6 +2,7 @@ package io.github.unisim;
 
 public class Achievement {
 
+
     private String description = "";
     private String title;
     private ScoreManager  scoreManager;
