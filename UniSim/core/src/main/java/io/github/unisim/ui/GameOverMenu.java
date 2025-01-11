@@ -43,7 +43,6 @@ public class GameOverMenu {
       public void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y) {
         // Switch to the game screen
         GameState.currentScreen = GameState.startScreen;
-
       }
     });
 
@@ -78,4 +77,6 @@ public class GameOverMenu {
   public InputProcessor getInputProcessor() {
     return inputMultiplexer;
   }
+
 }
+

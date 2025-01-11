@@ -45,8 +45,8 @@ public class SettingsScreen implements Screen {
     volumeSlider.setSize(200, 50);
     volumeSlider.addListener(event -> {
       // Adjust the game volume based on slider value
-      GameState.settings.setVolume(volumeSlider.getValue());
-      Main.updateMusicSettings();
+      GameState.settings.setVolume(volumeSlider.getValue()); /* Sets the volume to the value on slider */
+      Main.updateMusicSettings(); /* Updates the music volume  */
       return false;
     });
 

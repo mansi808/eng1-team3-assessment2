@@ -166,7 +166,7 @@ public class BuildingMenu {
    */
   public void update() {
       if (!world.placementTimer.isCooldownComplete() && world.selectedBuilding != null){
-          buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n  Building  Cooldown: "+world.placementTimer.getCooldownDuration()+"\n");
+          buildingInfoLabel.setText(world.selectedBuilding.name + " - Press 'R' to rotate \n  Building  Cooldown: "+world.placementTimer.getCooldownDuration() +"\n");
       }
     if (GameState.gameOver) {
       buildingInfoLabel.setText("Game Over!");

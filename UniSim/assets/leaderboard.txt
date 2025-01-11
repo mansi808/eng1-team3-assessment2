@@ -1,5 +1,0 @@
-Sam,93
-Emma,92
-Liam,84
-Sophia,78
-James,7
