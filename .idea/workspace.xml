@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Website Changes">
-      <change afterPath="$PROJECT_DIR$/docs/deliverables/ContinuousIntegrationReport.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/deliverables/ImplementationReport.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/ProjectPlanAssess2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/Week 11 Plan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/Week 12 Plan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/plans/Week Vacation Plan.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/deliverables/ContinuousIntergrationReport.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/img/plans/ProjectPlanAsses2pt1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diagrams/img/plans/ProjectPlanAsses2pt2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/weekly-plans-assessment2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/weekly-plans-assessment2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +56,13 @@
                 <item name="lwjgl3" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="UniSim" type="f1a62948:ProjectNode" />
+                <item name="lwjgl3" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -119,8 +115,12 @@
     "Gradle.Build UniSim.executor": "Run",
     "Gradle.BuildingManagerTests.executor": "Run",
     "Gradle.BuildingManagerTests.testPlaceBuilding.executor": "Run",
+    "Gradle.C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2 [run].executor": "Run",
     "Gradle.EventManagerTests.executor": "Run",
+    "Gradle.UniSim [compileJava].executor": "Run",
+    "Gradle.UniSim [dependencies].executor": "Run",
     "Gradle.UniSim:headless [run].executor": "Run",
+    "Gradle.UniSim:lwjgl3 [build].executor": "Run",
     "Gradle.UniSim:lwjgl3 [run].executor": "Run",
     "JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -152,11 +152,11 @@
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\core\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.UniSim:lwjgl3 [run]">
-    <configuration name="BuildingManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.UniSim:lwjgl3 [build]">
+    <configuration name="C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -164,65 +164,81 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":headless:test" />
-            <option value="--tests" />
-            <option value="&quot;io.github.unisim.headless.BuildingManagerTests&quot;" />
+            <option value="run" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BuildingManagerTests.testPlaceBuilding" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UniSim [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":headless:test" />
-            <option value="--tests" />
-            <option value="&quot;io.github.unisim.headless.BuildingManagerTests.testPlaceBuilding&quot;" />
+            <option value="compileJava" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="EventManagerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UniSim [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":headless:test" />
-            <option value="--tests" />
-            <option value="&quot;io.github.unisim.headless.EventManagerTests&quot;" />
+            <option value="dependencies" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UniSim:lwjgl3 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/UniSim/lwjgl3" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="UniSim:lwjgl3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -247,26 +263,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="BuildingManagerTests,testPlaceRecreationBuilding and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="UniSim.headless.test" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceRecreationBuilding" />
-        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceLearningBuilding" />
-        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceSleepingBuilding" />
-        <pattern testClass="io.github.unisim.headless.BuildingManagerTests,testPlaceEatingBuilding" />
-      </patterns>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UniSim:lwjgl3 [build]" />
+        <item itemvalue="Gradle.C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2 [run]" />
+        <item itemvalue="Gradle.UniSim [dependencies]" />
+        <item itemvalue="Gradle.UniSim [compileJava]" />
         <item itemvalue="Gradle.UniSim:lwjgl3 [run]" />
-        <item itemvalue="Gradle.BuildingManagerTests" />
-        <item itemvalue="Gradle.EventManagerTests" />
-        <item itemvalue="Gradle.BuildingManagerTests.testPlaceBuilding" />
-        <item itemvalue="JUnit.BuildingManagerTests,testPlaceRecreationBuilding and 3 more" />
       </list>
     </recent_temporary>
   </component>
@@ -289,7 +292,7 @@
       <workItem from="1733232341736" duration="25093000" />
       <workItem from="1733752374666" duration="15075000" />
       <workItem from="1736590614915" duration="3746000" />
-      <workItem from="1736616678992" duration="4956000" />
+      <workItem from="1736616678992" duration="5623000" />
     </task>
     <task id="LOCAL-00001" summary="Score Imbalance Calculator Implemented">
       <option name="closed" value="true" />
@@ -379,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736619562681</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Website Changes">
+      <option name="closed" value="true" />
+      <created>1736623644855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736623644855</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
