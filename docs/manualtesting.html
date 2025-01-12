@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./manualtesting.css" />
+    <title>UniSim | Manual Testing</title>
+  </head>
+  <body>
+    <div>
+      <a href="./index.html"> Back </a>
+    </div>
+    <h1>Manual test cases</h1>
+    <div>
+      <p>
+        However you try, sometimes it is not possible to fit all the testing
+        into its automatic counterpart. To deal with this persistent issue, we
+        had to implement some automatic testing. The problem is that not all
+        requirements in the game are quantitative or objectively measurable, so
+        we have to involve a potential user (or in some cases one of the members
+        of our team) who can check whether the rest of the game works in an
+        intended manner. In some cases, however, we just simply couldn't
+        automate the tests as some of the functionality of the game is not
+        isolatable from its enterity. And what do we mean by that, is that, for
+        example, the map with all of its obstacles could not be tested
+        automatically. For that we had to draw out additional tests to check
+        whether it functions in an intended matter.
+      </p>
+      <p>
+        In UniSim, the following parts of the game could not be tested using
+        unit or integration testing:
+      </p>
+      <ul>
+        <li>Whether a map exists and displayed correctly,</li>
+        <li>
+          Whether obstacles on the map exist and are behaving in an intended
+          manner,
+        </li>
+        <li>Whether the user interface is clear and easy to understand,</li>
+        <li>
+          Whether all the interactive elements of the UI work and give a clear
+          indication of that.
+        </li>
+      </ul>
+      <p>
+        To deal with each of those requirements, we have grouped them by the
+        purpose they serve — to test the map and to test the game UI. It might
+        already become clear to the reader that this will results in 2 test case
+        scenarios that has to be gone through. They are described below.
+      </p>
+    </div>
+    <div>
+      <h2>Scenario 1</h2>
+      <p>
+        The following scenario describes the steps to be taken to test the
+        functionality of the map. Follow it exactly and stop to note any
+        deviation from the expected results that are described below each of the
+        steps. This scenario tests the following requirements: FR_MAP,
+        FR_OBSTACLES, FR_MAP_ROADS, and FR_BUILDING_SPACE.
+      </p>
+      <ol>
+        <li>
+          <p>Instruction: Press Play button.</p>
+          <p>
+            Expected outcome: Start screen changes to Game screen with the
+            visible map
+          </p>
+        </li>
+        <li>
+          <p>
+            Instruction: Try dragging the map in all 4 directions by holding
+            left click.
+          </p>
+          <p>
+            Expected outcome: The screen should change to the location you
+            dragged on the map
+          </p>
+        </li>
+        <li>
+          <p>Instruction: Try zooming in and out by scrolling the mousewheel</p>
+          <p>Expected outcome: The map should resize</p>
+        </li>
+        <li>
+          <p>Instruction: Inspect the map for obstacles</p>
+          <p>Expected outcome: The map should have a river</p>
+        </li>
+        <li>
+          <p>
+            Instruction: From a selection of buildings, select a building and
+            try to place it over a river
+          </p>
+          <p>Expected outcome: The building won't be placed</p>
+        </li>
+        <li>
+          <p>Instruction: Inspect the map for roads</p>
+          <p>Expected outcome: The map should have roads</p>
+        </li>
+        <li>
+          <p>
+            Instruction: From a selection of buildings, select a building and
+            try to place it over a road
+          </p>
+          <p>Expected outcome: The building won't be placed</p>
+        </li>
+        <li>
+          <p>
+            Instruction: From a selection of buildings, select each building and
+            place them in an obstacle free area next to each other
+          </p>
+          <p>
+            Expected outcome: The building take up map space relative to their
+            size; i.e. a library takes up more tiles on the map than the bakery
+            would do
+          </p>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <h2>Scenario 2</h2>
+      <p>
+        The following scenario describes the steps to be taken to test the
+        functionality of the map. Follow it exactly and stop to note any
+        deviation from the expected results that are described below each of the
+        steps. This scenario tests the following requirements:
+        FR_USER_INTERFACE, FR_INTERACTIVE_ELEMENTS, FR_SATISFACTION_BAR,
+        FR_PAUSE_GAME, FR_UNPAUSE_GAME.
+      </p>
+      <ol>
+        <li>
+          <p>Instruction: Press Settings.</p>
+          <p>Expected outcome: Start screen changes to settings menu.</p>
+        </li>
+        <li>
+          <p>Instruction: Drag the volume back and forth.</p>
+          <p>
+            Expected outcome: The volume level changes in accordance with the
+            position of the scroller.
+          </p>
+        </li>
+        <li>
+          <p>Instruction: Press Back button.</p>
+          <p>
+            Expected outcome: The settings menu goes back to the start screen.
+          </p>
+        </li>
+        <li>
+          <p>Instruction: Press Play button.</p>
+          <p>
+            Expected outcome: Start screen changes to Game screen with the
+            visible map
+          </p>
+        </li>
+        <li>
+          <p>
+            Instruction: Check whether the lower part of the UI has all the
+            placeable buildings. A rule of thumb: there must be at least five.
+          </p>
+          <p>
+            Expected outcome: The lower part of the UI (building menu) has all
+            the buildings that can be placed
+          </p>
+        </li>
+        <li>
+          <p>
+            Instruction: For each of the available buildings, select it and try
+            to place it down.
+          </p>
+          <p>
+            Expected outcome: The button is clicked and allows the user to put
+            down a building.
+          </p>
+        </li>
+        <li>
+          <p>
+            Instruction: Check whether current time is clear and visible in the
+            upper part of the UI
+          </p>
+          <p>
+            Expected outcome: Current time is clear and visible in the upper
+            part of the UI
+          </p>
+        </li>
+        <li>
+          <p>Instruction: Press the pause button</p>
+          <p>
+            Expected outcome: The game state freezes, no buildings can be
+            placed, and the timer stops.
+          </p>
+        </li>
+        <li>
+          <p>Instruction: Press the unpause button</p>
+          <p>
+            Expected outcome: The game state resumes, buildings can be placed
+            once again, and the timer continues to run.
+          </p>
+        </li>
+        <li>
+          <p>
+            Instruction: Check whether satisfaction score is clear and visible
+            in the upper part of the UI
+          </p>
+          <p>
+            Expected outcome: Satisfaction score is clear and visible in the
+            upper part of the UI
+          </p>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
