@@ -4,8 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Website Changes">
+    <list default="true" id="3051ac9c-f99f-4a53-b7dc-cd604955114b" name="Changes" comment="Updating Timer to 5 minutes">
+      <change afterPath="$PROJECT_DIR$/docs/architecture2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deliverables/Arch2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deliverables/ChangeReport.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deliverables/Plan2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deliverables/Req2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/deliverables/Risk2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Building Structure Diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Class Diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Event.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Final Structure Diagram 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Package Structure Diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Place Building 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Project State Diagram 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/Traverse Map 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/img/UI Structure Diagram.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/UniSim-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/docs/UniSim-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/deliverables/ContinuousIntegrationReport.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deliverables/ContinuousIntegrationReport.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/deliverables/TestingReport.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deliverables/TestingReport.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/deliverables/UserEvaluationReport.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deliverables/UserEvaluationReport.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +50,9 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/UniSim/core">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
           <activation />
         </task>
         <projects_view>
@@ -129,7 +152,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/docs/deliverables",
+    "last_opened_file_path": "C:/Users/jjmcd/OneDrive/Desktop/Uni/ENG1/eng1-team3-assessment2/docs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,10 +163,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\docs" />
+      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\docs\diagrams\img" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\docs\deliverables" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\docs\diagrams\img\plans" />
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
-      <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jjmcd\OneDrive\Desktop\Uni\ENG1\eng1-team3-assessment2\UniSim\assets" />
@@ -292,7 +316,7 @@
       <workItem from="1733232341736" duration="25093000" />
       <workItem from="1733752374666" duration="15075000" />
       <workItem from="1736590614915" duration="3746000" />
-      <workItem from="1736616678992" duration="5623000" />
+      <workItem from="1736616678992" duration="13621000" />
     </task>
     <task id="LOCAL-00001" summary="Score Imbalance Calculator Implemented">
       <option name="closed" value="true" />
@@ -390,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736623644855</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updating Timer to 5 minutes">
+      <option name="closed" value="true" />
+      <created>1736624368380</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1736624368380</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,6 +452,7 @@
     <MESSAGE value="reverted to previous commit" />
     <MESSAGE value="BuildingManager and EventManager Tests" />
     <MESSAGE value="Website Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Website Changes" />
+    <MESSAGE value="Updating Timer to 5 minutes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating Timer to 5 minutes" />
   </component>
 </project>
